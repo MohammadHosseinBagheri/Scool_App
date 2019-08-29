@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import MyHeader from '../components/MyHeader';
-import { Icon, Card, CardItem, Right, Thumbnail, Body, Left, Button, } from 'native-base';
+import { Icon, Card, CardItem, Right, Thumbnail, Body, Left, Button, Spinner, } from 'native-base';
 import Modal from 'react-native-modalbox';
 
 import { FlatList } from 'react-native-gesture-handler';
@@ -24,14 +24,13 @@ class Home extends Component {
     componentWillMount() {
         this.state = {
             data: this.props.navigation.state.params.userData.element,
-
-            Courses: []
+            Courses: [],
+            isLoading: true,
         }
         //console.log(this.props.navigation.state.params.userData.element);
 
         console.log(this.state.data)
         this.fetchData();
-        console.log(this.state.Courses)
 
     }
 
@@ -107,28 +106,46 @@ class Home extends Component {
                     </Card>
                 </View>
                 <View style={{
-                    paddingTop: 50,
-                    flex: 1
+                    flex: 0.5
                 }}>
-
-                    <FlatList
-                        data={this.state.Courses}
-                        renderItem={({ item }) => {
-                            if (item.stu_national_id == this.props.navigation.state.params.userData.element.national_id) {
-                                return <BasicItem average={item.exam_name} ></BasicItem>
-                            }
-                        }}
-                    />
+                    {/* <FlatList
+                                data={this.state.Courses}
+                                renderItem={({ item }) => {
+                                    if (item.stu_national_id == this.props.navigation.state.params.userData.element.national_id) {
+                                        return <BasicItem average={item.exam_name} ></BasicItem>
+                                    }
+                                }}
+                            /> */}
+                    {
+                        this.state.isLoading
+                            ?
+                            (
+                                <Spinner color='yellow' />
+                            )
+                            :
+                            (
+                                <Button onPress={this.showInformation.bind(this)}>
+                                    <Text>
+                                        نمایش اطلاعات کلی 
+                                    </Text>
+                                </Button>
+                            )
+                    }
                 </View>
             </View>
         );
     }
+    showInformation(){
+        console.log(this.props)
+        this.props.navigation.navigate('ShowCourses')
+    }
     async fetchData() {
-        let fetchh = await fetch('http://192.168.1.53:80/proj/api/api.php?method=GetStuCorses')
+        let fetchh = await fetch('http://192.168.1.52:80/proj/api/api.php?method=GetStuCorses')
         let response = await fetchh.json()
         //console.log(response)
         this.setState({
-            Courses: response
+            Courses: response,
+            isLoading: false
         })
         //console.log(this.state.Courses)
     }
