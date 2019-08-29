@@ -64,39 +64,39 @@ class Home extends Component {
                     <Card>
                         <CardItem header bordered >
                             <Left>
-                                <Thumbnail style={{ width: 40, height: 40 }} source={{ uri: 'https://pickaface.net/assets/images/slides/slide2.png' }} />
+                                <Thumbnail style={styles.thumnail} source={{ uri: 'https://pickaface.net/assets/images/slides/slide2.png' }} />
                             </Left>
                             <Body>
-                                <Text style={{ fontFamily: 'IRANSansMobile' }}>اطلاعات درسی دانش آموز</Text>
-                                <Text style={{ fontFamily: 'IRANSansMobile' }} note={true}>{this.props.navigation.state.params.userData.element.first_name + " " + this.props.navigation.state.params.userData.element.last_name}</Text>
+                                <Text style={styles.cardBodyText}>اطلاعات درسی دانش آموز</Text>
+                                <Text style={styles.cardBodyText} note={true}>{this.props.navigation.state.params.userData.element.first_name + " " + this.props.navigation.state.params.userData.element.last_name}</Text>
                             </Body>
                         </CardItem>
-                        <CardItem style={{ flexDirection: 'row-reverse' }}>
+                        <CardItem style={styles.secondCardItem}>
                             <Right>
-                                <Text style={{ fontFamily: 'IRANSansMobile_UltraLight', fontSize: 18, marginRight: '2%' }}>میانگین دروس : </Text>
+                                <Text style={styles.secondCardItemRightText}>میانگین دروس : </Text>
                             </Right>
                             <Left>
-                                <Text style={{ marginLeft: '3%', fontFamily: 'IRANSansMobile' }}>
+                                <Text style={styles.secondCardItemLeftText}>
                                     {this.props.navigation.state.params.userData.element.total_Ave}
                                 </Text>
                             </Left>
                         </CardItem>
-                        <CardItem style={{ flexDirection: 'row-reverse' }} >
+                        <CardItem style={styles.thrCardItem} >
                             <Right>
-                                <Text style={{ fontFamily: 'IRANSansMobile_UltraLight', fontSize: 18, marginRight: '2%' }}>  شماره موبایل : </Text>
+                                <Text style={styles.thrCardItemRightText}>  شماره موبایل : </Text>
                             </Right>
                             <Left>
-                                <Text style={{ marginLeft: '3%', fontFamily: 'IRANSansMobile' }}>
+                                <Text style={styles.thrCardItemLeftText}>
                                     {this.props.navigation.state.params.userData.element.mobile_phone}
                                 </Text>
                             </Left>
                         </CardItem>
-                        <CardItem style={{ flexDirection: 'row-reverse' }} >
+                        <CardItem style={styles.fourCardItem} >
                             <Right>
-                                <Text style={{ fontFamily: 'IRANSansMobile_UltraLight', fontSize: 16, marginRight: '2%' }}>  شماره موبایل پدر : </Text>
+                                <Text style={styles.fourCardItemRightText}>  شماره موبایل پدر : </Text>
                             </Right>
                             <Left>
-                                <Text style={{ marginLeft: '3%', fontFamily: 'IRANSansMobile' }}>
+                                <Text style={styles.fourCardItemLeftText}>
                                     {this.props.navigation.state.params.userData.element.father_mobile}
                                 </Text>
                             </Left>
@@ -153,6 +153,49 @@ const styles = StyleSheet.create({
     text: {
         color: "black",
         fontSize: 22
+    },
+    thumnail: {
+        width: 40,
+        height: 40
+    },
+    cardBodyText: {
+        fontFamily: 'IRANSansMobile'
+    },
+    secondCardItem: {
+        flexDirection: 'row-reverse'
+    },
+    secondCardItemRightText: {
+        fontFamily: 'IRANSansMobile_UltraLight',
+        fontSize: 18,
+        marginRight: '2%'
+    },
+    secondCardItemLeftText: {
+        marginLeft: '3%',
+        fontFamily: 'IRANSansMobile'
+    },
+    thrCardItem: {
+        flexDirection: 'row-reverse'
+    },
+    thrCardItemRightText: {
+        fontFamily: 'IRANSansMobile_UltraLight',
+        fontSize: 18,
+        marginRight: '2%'
+    },
+    thrCardItemLeftText: {
+        marginLeft: '3%',
+        fontFamily: 'IRANSansMobile'
+    },
+    fourCardItem: {
+        flexDirection: 'row-reverse'
+    },
+    fourCardItemRightText: {
+        fontFamily: 'IRANSansMobile_UltraLight',
+        fontSize: 16,
+        marginRight: '2%'
+    },
+    fourCardItemLeftText: {
+        marginLeft: '3%',
+        fontFamily: 'IRANSansMobile'
     }
 })
 export default Home;
