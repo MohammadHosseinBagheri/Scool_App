@@ -1,11 +1,40 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, Dimensions } from 'react-native';
 import MyHeader from '../components/MyHeader';
-import { Icon, Card, CardItem, Right, Thumbnail, Body, Left, Button, Spinner, } from 'native-base';
+import { Icon, Card, CardItem, Right, Thumbnail, Body, Left, Button, Spinner, ScrollView } from 'native-base';
 import Modal from 'react-native-modalbox';
 
 import { FlatList } from 'react-native-gesture-handler';
+class MyModal extends Component {
+    constructor(props) {
+        super(props)
+    }
+    showModal() {
+        this.refs.modal.open()
+    }
+    render() {
+        const screen = Dimensions.get('window')
 
+        return (
+            <Modal
+                style={{ justifyContent: 'center', height: 280, width: screen.width, paddingLeft: 10 }}
+                position={'bottom'}
+                ref={'modal'}
+                backdrop={true}
+                onClosed={() => {
+                    alert('modal closed')
+                }}>
+                <View>
+                    <Button>
+                        <Text>
+                            salam
+                        </Text>
+                    </Button>
+                </View>
+            </Modal>
+        )
+    }
+}
 class BasicItem extends Component {
     render() {
         const { average } = this.props
@@ -20,6 +49,7 @@ class BasicItem extends Component {
 class Home extends Component {
     constructor(props) {
         super(props);
+        this.showInformation = this.showInformation.bind(this)
     }
     componentWillMount() {
         this.state = {
@@ -124,20 +154,24 @@ class Home extends Component {
                             )
                             :
                             (
-                                <Button onPress={this.showInformation.bind(this)}>
+                                <Button onPress={this.showInformation}>
                                     <Text>
-                                        نمایش اطلاعات کلی 
+                                        نمایش اطلاعات کلی
                                     </Text>
                                 </Button>
                             )
                     }
                 </View>
+                <MyModal ref={'modal'} >
+
+                </MyModal>
             </View>
         );
     }
-    showInformation(){
-        console.log(this.props)
-        this.props.navigation.navigate('ShowCourses')
+    showInformation() {
+        //console.log(this.props)
+        //this.props.navigation.navigate('ShowCourses')
+        this.refs.modal.showModal()
     }
     async fetchData() {
         let fetchh = await fetch('http://192.168.1.52:80/proj/api/api.php?method=GetStuCorses')
