@@ -20,13 +20,6 @@ class BasicItem extends Component {
 class Home extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            isOpen: false,
-            isDisabled: false,
-            swipeToClose: true,
-            sliderValue: 0.3,
-        }
-
     }
     componentWillMount() {
         this.state = {
@@ -117,20 +110,15 @@ class Home extends Component {
                     paddingTop: 50,
                     flex: 1
                 }}>
-                    <Button onPress={() => this.refs.modal1.open()} style={styles.btn}><Text style={styles.text}>نمایش دروس</Text></Button>
-                    <Modal style={[styles.modal, styles.modal]} position={"center"} ref={"modal1"} isDisabled={this.state.isDisabled}>
-                        <Button onPress={() => this.setState({ isDisabled: !this.state.isDisabled })} style={styles.btn} >
-                            <Text>s</Text>
-                        </Button>
-                        <FlatList
-                            data={this.state.Courses}
-                            renderItem={({ item }) => {
-                                if (item.stu_national_id == this.props.navigation.state.params.userData.element.national_id) {
-                                    return <BasicItem average={item.exam_name} ></BasicItem>
-                                }
-                            }}
-                        />
-                    </Modal>
+
+                    <FlatList
+                        data={this.state.Courses}
+                        renderItem={({ item }) => {
+                            if (item.stu_national_id == this.props.navigation.state.params.userData.element.national_id) {
+                                return <BasicItem average={item.exam_name} ></BasicItem>
+                            }
+                        }}
+                    />
                 </View>
             </View>
         );
@@ -146,12 +134,7 @@ class Home extends Component {
     }
 }
 const styles = StyleSheet.create({
-    btn: {
-        margin: 10,
-        backgroundColor: "#3B5998",
-        color: "white",
-        padding: 10
-    },
+
     headerTitle: {
         flexDirection: 'row',
         fontSize: 20,
@@ -166,14 +149,6 @@ const styles = StyleSheet.create({
     },
     headerLeft: {
         color: '#00E676',
-    },
-    modal: {
-        justifyContent: 'center',
-        alignItems: 'center'
-    },
-    modal: {
-        height: 300,
-        width: 300
     },
     text: {
         color: "black",

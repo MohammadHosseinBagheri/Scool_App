@@ -15,7 +15,7 @@ class Login extends Component {
             data: null
         }
     }
-    componentDidMount() {
+    componentWillMount() {
         this.fetches();
     }
     render() {
@@ -48,8 +48,8 @@ class Login extends Component {
         );
     }
     async fetches() {
-        const res = await fetch('http://192.168.1.53:80/proj/api/api.php?method=GetStudents');
-        const json = await res.json();
+        let res = await fetch('http://192.168.1.52:80/proj/api/api.php?method=GetStudents');
+        let json = await res.json();
         jj = json;
         console.log(json);
         this.setState({
