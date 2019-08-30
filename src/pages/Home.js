@@ -14,22 +14,47 @@ class MyModal extends Component {
     }
     render() {
         const screen = Dimensions.get('window')
-
         return (
             <Modal
-                style={{ justifyContent: 'center', height: 280, width: screen.width, paddingLeft: 10 }}
+                style={{
+                    backgroundColor:'#263238',
+                    borderRadius: 10,
+                    marginTop: 10,
+                    justifyContent: 'center',
+                    width: screen.width - 20,
+                }}
                 position={'bottom'}
                 ref={'modal'}
                 backdrop={true}
                 onClosed={() => {
                     alert('modal closed')
                 }}>
-                <View>
-                    <Button>
-                        <Text>
-                            salam
-                        </Text>
-                    </Button>
+                <View style={{ margin: 5, flex: 1, flexDirection: 'column', backgroundColor: '#455A64' }}>
+                    <View style={{ flex: 1, justifyContent: 'space-around', flexDirection: 'row', margin: 7 }}>
+                        <Button style={{ elevation: 10 }} >
+                            <Text style={{ padding: 10, fontFamily: 'IRANSansMobile', fontSize: 16 }}>
+                                برنامه کلاسی
+                            </Text>
+                        </Button>
+                        <Button style={{ elevation: 10 }}>
+                            <Text style={{ padding: 10, fontFamily: 'IRANSansMobile', fontSize: 16 }}>
+                                برنامه امتحانات
+                            </Text>
+                        </Button>
+
+                    </View>
+                    <View style={{ flex: 1, justifyContent: 'space-around', flexDirection: 'row',margin: 7 }}>
+                        <Button style={{ elevation: 10,backgroundColor:'#E64A19' }}>
+                            <Text style={{ padding: 10, fontFamily: 'IRANSansMobile', fontSize: 16 }}>
+                                اطلاعیه ها
+                            </Text>
+                        </Button>
+                        <Button style={{ elevation: 10 }}>
+                            <Text style={{ padding: 10, fontFamily: 'IRANSansMobile', fontSize: 16 }}>
+                                کارنامه
+                            </Text>
+                        </Button>
+                    </View>
                 </View>
             </Modal>
         )
@@ -62,16 +87,6 @@ class Home extends Component {
         console.log(this.state.data)
         this.fetchData();
 
-    }
-
-    renderList() {
-        var list = [];
-
-        for (var i = 0; i < 50; i++) {
-            list.push(<Text style={styles.text} key={i}>Elem {i}</Text>);
-        }
-
-        return list;
     }
 
     render() {
@@ -130,9 +145,6 @@ class Home extends Component {
                                 </Text>
                             </Left>
                         </CardItem>
-                        <CardItem>
-
-                        </CardItem>
                     </Card>
                 </View>
                 <View style={{
@@ -146,25 +158,20 @@ class Home extends Component {
                                     }
                                 }}
                             /> */}
-                    {
-                        this.state.isLoading
-                            ?
-                            (
-                                <Spinner color='yellow' />
-                            )
-                            :
-                            (
-                                <Button onPress={this.showInformation}>
-                                    <Text>
-                                        نمایش اطلاعات کلی
+                    <View style={{ flex: 0.3 }}>
+                        <Button onPress={this.showInformation}>
+                            <Text>
+                                نمایش اطلاعات کلی
                                     </Text>
-                                </Button>
-                            )
-                    }
-                </View>
-                <MyModal ref={'modal'} >
+                        </Button>
+                    </View>
+                    <View style={{ flex: 1 }}>
+                        <MyModal ref={'modal'} >
 
-                </MyModal>
+                        </MyModal>
+                    </View>
+                </View>
+
             </View>
         );
     }
