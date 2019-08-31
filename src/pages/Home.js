@@ -12,20 +12,23 @@ class MyModal extends Component {
     showModal() {
         this.refs.modal.open()
     }
-    Exams(){
-        const property=this.props.someProp
-        const userInfo=property.navigation.state.params
-        console.log(property)
-        property.navigation.navigate('Exams',{userInfo:{
-            
-        }})
+    Exams() {
+        const property = this.props.someProp
+        const userInfo = property.navigation.state.params
+        const klass_id = userInfo.userData.element.klass_id
+        //console.log(national_id)
+        property.navigation.navigate('Exams', {
+            userInfo: {
+                klass_id: klass_id
+            }
+        })
     }
     render() {
         const screen = Dimensions.get('window')
         return (
             <Modal
                 style={{
-                    backgroundColor:'#263238',
+                    backgroundColor: '#263238',
                     borderRadius: 10,
                     marginTop: 10,
                     justifyContent: 'center',
@@ -51,8 +54,8 @@ class MyModal extends Component {
                         </Button>
 
                     </View>
-                    <View style={{ flex: 1, justifyContent: 'space-around', flexDirection: 'row',margin: 7 }}>
-                        <Button style={{ elevation: 10,backgroundColor:'#E64A19' }}>
+                    <View style={{ flex: 1, justifyContent: 'space-around', flexDirection: 'row', margin: 7 }}>
+                        <Button style={{ elevation: 10, backgroundColor: '#E64A19' }}>
                             <Text style={{ padding: 10, fontFamily: 'IRANSansMobile', fontSize: 16 }}>
                                 اطلاعیه ها
                             </Text>
@@ -65,16 +68,6 @@ class MyModal extends Component {
                     </View>
                 </View>
             </Modal>
-        )
-    }
-}
-class BasicItem extends Component {
-    render() {
-        const { average } = this.props
-        return (
-            <View>
-                <Text>{average}</Text>
-            </View>
         )
     }
 }
@@ -94,7 +87,6 @@ class Home extends Component {
 
         console.log(this.state.data)
         this.fetchData();
-        this.fetchDataExams();
 
     }
 
@@ -107,12 +99,6 @@ class Home extends Component {
                     //left={<Icon name={'person'} style={{color:'white'}}></Icon>}
                     body={<Text style={{ color: 'white', fontFamily: 'IRANSansMobile_Medium' }} >{username}</Text>}
                     right={<Icon name={'person'} style={{ color: 'white' }}></Icon>} />
-                {/* <BasicItem 
-                    average={<Text>{this.props.navigation.state.params.userData.element.total_Ave}</Text>}
-                    phone={this.props.navigation.state.params.userData.element.mobile_phone}
-                    fatherPhon={this.props.navigation.state.params.userData.element.father_mobile}
-                    /> */}
-
                 <View style={{ flex: 0.5 }}>
                     <Card>
                         <CardItem header bordered >
@@ -159,18 +145,10 @@ class Home extends Component {
                 <View style={{
                     flex: 0.5
                 }}>
-                    {/* <FlatList
-                                data={this.state.Courses}
-                                renderItem={({ item }) => {
-                                    if (item.stu_national_id == this.props.navigation.state.params.userData.element.national_id) {
-                                        return <BasicItem average={item.exam_name} ></BasicItem>
-                                    }
-                                }}
-                            /> */}
-                    <View style={{ flex: 0.3,justifyContent:'center',alignItems:'center' }}>
+                    <View style={{ flex: 0.3, justifyContent: 'center', alignItems: 'center' }}>
                         <Button onPress={this.showInformation}  >
-                            <Text style={{marginLeft:8,marginRight:8,fontFamily:'IRANSansMobile_Light',fontSize:18}}>
-                                نمایش اطلاعات 
+                            <Text style={{ marginLeft: 8, marginRight: 8, fontFamily: 'IRANSansMobile_Light', fontSize: 18 }}>
+                                نمایش اطلاعات
                                     </Text>
                         </Button>
                     </View>
@@ -198,11 +176,6 @@ class Home extends Component {
             isLoading: false
         })
         //console.log(this.state.Courses)
-    }
-    async fetchDataExams(){
-        let response= await fetch('http://192.168.1.51:80/proj/api/api.php?method=GetStuCorses');
-        let responseJson= await response.json();
-        await console.log(responseJson)
     }
 }
 const styles = StyleSheet.create({
