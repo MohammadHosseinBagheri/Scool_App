@@ -19,32 +19,35 @@ class Exams extends Component {
     render() {
 
         return (
-            <View style={{ flex: 1 }} >
+            <View style={{ flex: 1, backgroundColor: '#455A64' }} >
                 <MyHeader
                     left={<Icon name={'arrow-back'} style={{ color: 'white' }} onPress={() => {
                         this.props.navigation.goBack()
                     }} />}
-                    right={<Icon name={'book'} style={{color:'green'}}/>}
-
+                    right={<Icon name={'book'} style={{ color: 'white' }} />}
+                    body={<Text style={{fontFamily:'IRANSansMobile',color:'white',fontSize:16}} >برنامه امتحانات</Text>}
                 />
                 <View style={{ flex: 1 }}>
                     <FlatList
                         data={this.state.data}
-                        numColumns={2}
-                        renderItem={({ item }) => (
-                            <View style={{
-                                flex: 1, justifyContent: 'space-between', flexDirection: 'column', alignItems: 'center', elevation: 2, borderWidth: 2
-                                , borderColor: 'blue',
+                        numColumns={1}
+                        renderItem={({ item, index }) => (
+                            <View style={[{
+                                flex: 1, justifyContent: 'space-between', flexDirection: 'column', alignItems: 'center', elevation: 2,
+                                 borderWidth: 2
+                                , borderColor: '#FFEE58',
+                                borderRadius:10,
                                 margin: 5
-                            }}>
-                                <View style={{ flex: 1, flexDirection: 'row', }}>
-                                    <Text>امتحان {item.name}</Text>
+                            }, (index % 2 == 0) ? { backgroundColor: '#FF7043' } : { backgroundColor: '#26A69A' }]}>
+                                <View style={[{ flex: 1, flexDirection: 'row' },]}>
+                                    <Text style={{ fontFamily: 'IRANSansMobile_Medium' }} >امتحان {item.name}</Text>
                                 </View>
                                 <View style={{ flex: 1, flexDirection: 'row', }}>
-                                    <Text>تاریخ {item.date}</Text>
+                                    <Text style={{ fontFamily: 'IRANSansMobile_Medium' }}>تاریخ {item.date}</Text>
                                 </View>
                             </View>
                         )}
+                        keyExtractor={(item, index) => index}
                     />
                 </View>
             </View>
