@@ -2,6 +2,7 @@ import { createStackNavigator, createAppContainer } from "react-navigation"
 import Login from "./Login";
 import Home from "./Home";
 import ShowCourses from './ShowCourses';
+import Exams from "./Exams";
 const Pages = createStackNavigator({
     Login: {
         screen: Login
@@ -11,6 +12,9 @@ const Pages = createStackNavigator({
     },
     ShowCourses:{
         screen:ShowCourses
+    },
+    Exams:{
+        screen:Exams
     }
 },
     {

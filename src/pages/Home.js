@@ -3,14 +3,22 @@ import { View, Text, StyleSheet, Dimensions } from 'react-native';
 import MyHeader from '../components/MyHeader';
 import { Icon, Card, CardItem, Right, Thumbnail, Body, Left, Button, Spinner, ScrollView } from 'native-base';
 import Modal from 'react-native-modalbox';
-
 import { FlatList } from 'react-native-gesture-handler';
+
 class MyModal extends Component {
     constructor(props) {
         super(props)
     }
     showModal() {
         this.refs.modal.open()
+    }
+    Exams(){
+        const property=this.props.someProp
+        const userInfo=property.navigation.state.params
+        console.log(property)
+        property.navigation.navigate('Exams',{userInfo:{
+            
+        }})
     }
     render() {
         const screen = Dimensions.get('window')
@@ -36,7 +44,7 @@ class MyModal extends Component {
                                 برنامه کلاسی
                             </Text>
                         </Button>
-                        <Button style={{ elevation: 10 }}>
+                        <Button style={{ elevation: 10 }} onPress={this.Exams.bind(this)} >
                             <Text style={{ padding: 10, fontFamily: 'IRANSansMobile', fontSize: 16 }}>
                                 برنامه امتحانات
                             </Text>
@@ -86,6 +94,7 @@ class Home extends Component {
 
         console.log(this.state.data)
         this.fetchData();
+        this.fetchDataExams();
 
     }
 
@@ -158,15 +167,15 @@ class Home extends Component {
                                     }
                                 }}
                             /> */}
-                    <View style={{ flex: 0.3 }}>
-                        <Button onPress={this.showInformation}>
-                            <Text>
-                                نمایش اطلاعات کلی
+                    <View style={{ flex: 0.3,justifyContent:'center',alignItems:'center' }}>
+                        <Button onPress={this.showInformation}  >
+                            <Text style={{marginLeft:8,marginRight:8,fontFamily:'IRANSansMobile_Light',fontSize:18}}>
+                                نمایش اطلاعات 
                                     </Text>
                         </Button>
                     </View>
                     <View style={{ flex: 1 }}>
-                        <MyModal ref={'modal'} >
+                        <MyModal ref={'modal'} someProp={this.props} >
 
                         </MyModal>
                     </View>
@@ -181,7 +190,7 @@ class Home extends Component {
         this.refs.modal.showModal()
     }
     async fetchData() {
-        let fetchh = await fetch('http://192.168.1.52:80/proj/api/api.php?method=GetStuCorses')
+        let fetchh = await fetch('http://192.168.1.51:80/proj/api/api.php?method=GetStuCorses')
         let response = await fetchh.json()
         //console.log(response)
         this.setState({
@@ -189,6 +198,11 @@ class Home extends Component {
             isLoading: false
         })
         //console.log(this.state.Courses)
+    }
+    async fetchDataExams(){
+        let response= await fetch('http://192.168.1.51:80/proj/api/api.php?method=GetStuCorses');
+        let responseJson= await response.json();
+        await console.log(responseJson)
     }
 }
 const styles = StyleSheet.create({
