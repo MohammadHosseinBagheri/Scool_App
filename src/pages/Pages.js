@@ -3,6 +3,7 @@ import Login from "./Login";
 import Home from "./Home";
 import ShowCourses from './ShowCourses';
 import Exams from "./Exams";
+import Points from "./Points";
 const Pages = createStackNavigator({
     Login: {
         screen: Login
@@ -15,6 +16,9 @@ const Pages = createStackNavigator({
     },
     Exams:{
         screen:Exams
+    },
+    Points:{
+        screen:Points
     }
 },
     {
