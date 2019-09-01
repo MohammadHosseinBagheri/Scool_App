@@ -28,9 +28,20 @@ class MyModal extends Component {
         console.log(this.props)
         const national_id = this.props.someProp.navigation.state.params.userData.element.national_id
         console.log(national_id)
-        this.props.someProp.navigation.navigate('Points',{userInfo:{
-            national_id:national_id
-        }})
+        this.props.someProp.navigation.navigate('Points', {
+            userInfo: {
+                national_id: national_id
+            }
+        })
+    }
+    help(){
+        console.log(this.props)
+        const userInfo=this.props
+        this.props.someProp.navigation.navigate('HelpEmail', {
+            userInfo: {
+                national_id: userInfo
+            }
+        })
     }
     render() {
         const screen = Dimensions.get('window')
@@ -51,12 +62,12 @@ class MyModal extends Component {
                 }}>
                 <View style={{ margin: 5, flex: 1, flexDirection: 'column', backgroundColor: '#455A64' }}>
                     <View style={{ flex: 1, justifyContent: 'space-around', flexDirection: 'row', margin: 7 }}>
-                        <Button style={{ elevation: 10 }} onPress={this.showPoint.bind(this)} >
+                        <Button style={{ elevation: 10, borderRadius: 15, backgroundColor: '#FF7043' }} onPress={this.showPoint.bind(this)} >
                             <Text style={{ padding: 10, fontFamily: 'IRANSansMobile', fontSize: 16 }}>
                                 نمرات
                             </Text>
                         </Button>
-                        <Button style={{ elevation: 10 }} onPress={this.Exams.bind(this)} >
+                        <Button style={{ elevation: 10, borderRadius: 15, backgroundColor: '#FF7043' }} onPress={this.Exams.bind(this)} >
                             <Text style={{ padding: 10, fontFamily: 'IRANSansMobile', fontSize: 16 }}>
                                 برنامه امتحانات
                             </Text>
@@ -64,14 +75,14 @@ class MyModal extends Component {
 
                     </View>
                     <View style={{ flex: 1, justifyContent: 'space-around', flexDirection: 'row', margin: 7 }}>
-                        <Button style={{ elevation: 10, backgroundColor: '#E64A19' }}>
+                        <Button style={{ elevation: 10, backgroundColor: '#FF7043', borderRadius: 15 }}>
                             <Text style={{ padding: 10, fontFamily: 'IRANSansMobile', fontSize: 16 }}>
                                 اطلاعیه ها
                             </Text>
                         </Button>
-                        <Button style={{ elevation: 10 }}>
+                        <Button style={{ elevation: 10, borderRadius: 15, backgroundColor: '#FF7043' }} onPress={this.help.bind(this)}>
                             <Text style={{ padding: 10, fontFamily: 'IRANSansMobile', fontSize: 16 }}>
-                                کارنامه
+                                پشتیبانی و ایمیل دبیر ها
                             </Text>
                         </Button>
                     </View>
