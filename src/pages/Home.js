@@ -9,6 +9,7 @@ class MyModal extends Component {
     constructor(props) {
         super(props)
     }
+    
     showModal() {
         this.refs.modal.open()
     }
@@ -22,6 +23,14 @@ class MyModal extends Component {
                 klass_id: klass_id
             }
         })
+    }
+    showPoint(){
+        console.log(this.props)
+        const national_id=this.props.someProp.navigation.state.params.userData.element.national_id
+        console.log(national_id)
+        fetch('http://192.168.1.51:80/proj/api/api.php?method=GetStuCorses')
+        .then(response=>{response.json()})
+        .then(responseJson=>{})
     }
     render() {
         const screen = Dimensions.get('window')
@@ -42,9 +51,9 @@ class MyModal extends Component {
                 }}>
                 <View style={{ margin: 5, flex: 1, flexDirection: 'column', backgroundColor: '#455A64' }}>
                     <View style={{ flex: 1, justifyContent: 'space-around', flexDirection: 'row', margin: 7 }}>
-                        <Button style={{ elevation: 10 }} >
+                        <Button style={{ elevation: 10 }} onPress={this.showPoint.bind(this)} >
                             <Text style={{ padding: 10, fontFamily: 'IRANSansMobile', fontSize: 16 }}>
-                                برنامه کلاسی
+                                 نمرات
                             </Text>
                         </Button>
                         <Button style={{ elevation: 10 }} onPress={this.Exams.bind(this)} >
