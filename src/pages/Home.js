@@ -3,6 +3,7 @@ import { View, Text, StyleSheet, Dimensions } from 'react-native';
 import MyHeader from '../components/MyHeader';
 import { Icon, Card, CardItem, Right, Thumbnail, Body, Left, Button, Spinner, ScrollView } from 'native-base';
 import Modal from 'react-native-modalbox';
+import LottieView from 'lottie-react-native';
 import { FlatList } from 'react-native-gesture-handler';
 
 class MyModal extends Component {
@@ -118,7 +119,7 @@ class Home extends Component {
                 <MyHeader
                     //left={<Icon name={'person'} style={{color:'white'}}></Icon>}
                     body={<Text style={{ color: 'white', fontFamily: 'IRANSansMobile_Medium' }} >{username}</Text>}
-                    right={<Icon name={'person'} style={{ color: 'white' }}></Icon>} />
+                    right={<LottieView style={{width:60,height:60}} source={require('../animation/user.json')} autoPlay  />} />
                 <View style={{ flex: 0.5 }}>
                     <Card>
                         <CardItem header bordered >
