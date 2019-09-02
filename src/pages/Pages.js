@@ -5,7 +5,11 @@ import ShowCourses from './ShowCourses';
 import Exams from "./Exams";
 import Points from "./Points";
 import HelpEmail from "./HelpEmail";
+import Loading from "./Loading";
 const Pages = createStackNavigator({
+    Loading:{
+        screen:Loading
+    },
     Login: {
         screen: Login
     },

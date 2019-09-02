@@ -29,6 +29,8 @@ target 'school_proj_android' do
 
   pod 'BVLinearGradient', :path => '../node_modules/react-native-linear-gradient'
 
+  pod 'lottie-react-native', :path => '../node_modules/lottie-react-native'
+
   target 'school_proj_androidTests' do
     inherit! :search_paths
     # Pods for testing
