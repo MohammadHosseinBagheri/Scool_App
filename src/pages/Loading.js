@@ -15,8 +15,9 @@ componentWillMount(){
 }
   render() {
     return (
-         <View style={{backgroundColor:'#'}}>
-             <LottieView source={require('../animation/loading.json')} autoPlay loop  />
+         <View style={{backgroundColor:'#455A64',flex:1,flexDirection:'column'}}>
+             {/* <LottieView style={{flex:0.5}} source={require('../animation/loading.json')} autoPlay loop  /> */}
+             <LottieView style={{flex:0.5}} source={require('../animation/book.json')} autoPlay loop  />
          </View>
 
     );
