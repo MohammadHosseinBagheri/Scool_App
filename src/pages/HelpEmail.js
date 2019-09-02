@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text ,StyleSheet} from 'react-native';
 import { Card, CardItem, Thumbnail,Icon } from 'native-base';
 import { FlatList } from 'react-native-gesture-handler';
 import MyHeader from '../components/MyHeader';
@@ -26,17 +26,17 @@ class HelpEmail extends Component {
                 <FlatList data={this.state.Teachers}
                     renderItem={({ item, index }) => (
                         <Card>
-                            <CardItem header bordered >
+                            <CardItem header bordered style={{backgroundColor:'#FFF59D'}} >
                                 <Thumbnail source={{uri:'https://pickaface.net/assets/images/slides/slide2.png'}} />
                                 <View style={{ flex: 1 }}>
-                                    <Text>
+                                    <Text style={[styles.cardBodyText,{ fontFamily: 'IRANSansMobile_Light', elevation: 5 }]}>
                                         آقای {item.first_name} {item.last_name}
                                     </Text>
                                 </View>
                             </CardItem>
-                            <CardItem cardBody>
-                                <View style={{flex:1}}>
-                                    <Text>
+                            <CardItem cardBody style={{backgroundColor:'#FF8A65'}}>
+                                <View style={{flex:1,justifyContent:'center',alignItems:'center'}}>
+                                    <Text style={styles.cardBodyText}>
                                         ایمیل : {item.email}
                                     </Text>
                                 </View>
@@ -57,5 +57,12 @@ class HelpEmail extends Component {
         await console.log(this.state.Teachers)
     }
 }
+const styles = StyleSheet.create({
+    cardBodyText: {
+        fontFamily: 'IRANSansMobile',
+        fontSize: 15,
+        color: 'black'
+    }
+})
 
 export default HelpEmail;
