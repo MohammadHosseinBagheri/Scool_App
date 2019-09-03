@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View, Text,Dimensions } from 'react-native';
 import { Form, Item, Input, Icon, Label, Button } from 'native-base';
 import { TextInput } from 'react-native-gesture-handler';
-import { createStackNavigator, createAppContainer } from "react-navigation";
+import { createStackNavigator, createAppContainer, } from "react-navigation";
 import LottieView from 'lottie-react-native';
 import MyHeader from '../components/MyHeader';
 var screen=Dimensions.get('window')
@@ -71,7 +71,7 @@ class Login extends Component {
         let pass = this.state.password;
         jj.forEach(element => {
             if (user == element.username && pass == element.password) {
-                this.props.navigation.replace('Home', {
+                this.props.navigation.navigate('Home', {
                     userData: { element }
                 })
                 return;

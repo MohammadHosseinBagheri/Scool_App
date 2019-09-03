@@ -117,7 +117,9 @@ class Home extends Component {
         return (
             <View style={{ flex: 1, flexDirection: 'column', backgroundColor: '#455A64' }}>
                 <MyHeader
-                    //left={<Icon name={'person'} style={{color:'white'}}></Icon>}
+                    left={<Icon name={'menu'} style={{color:'white'}} onPress={()=>{
+                        this.props.navigation.openDrawer()
+                    }} ></Icon>}
                     body={<Text style={{ color: 'white', fontFamily: 'IRANSansMobile_Medium' }} >{username}</Text>}
                     right={<LottieView style={{width:60,height:60}} source={require('../animation/user.json')} autoPlay  />} />
                 <View style={{ flex: 0.5 }}>
