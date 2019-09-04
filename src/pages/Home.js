@@ -49,11 +49,11 @@ class MyModal extends Component {
         return (
             <Modal
                 style={{
-                    backgroundColor: '#263238',
+                    backgroundColor: '#66BB6A',
                     borderRadius: 10,
-                    marginTop: 10,
                     justifyContent: 'center',
-                    width: screen.width - 20,
+                    width: screen.width ,
+                    elevation:20
                 }}
                 position={'bottom'}
                 ref={'modal'}
@@ -61,14 +61,14 @@ class MyModal extends Component {
                 onClosed={() => {
                     alert('modal closed')
                 }}>
-                <View style={{ margin: 5, flex: 1, flexDirection: 'column', backgroundColor: '#455A64' }}>
+                <View style={{  flex: 1, flexDirection: 'column', backgroundColor: '#66BB6A' }}>
                     <View style={{ flex: 1, justifyContent: 'space-around', flexDirection: 'row', margin: 7 }}>
-                        <Button style={{ elevation: 10, borderRadius: 15, backgroundColor: '#FF7043' }} onPress={this.showPoint.bind(this)} >
+                        <Button style={{ elevation: 10,  backgroundColor: '#FF7043' ,borderTopRightRadius:15,borderBottomLeftRadius:15}} onPress={this.showPoint.bind(this)} >
                             <Text style={{ padding: 10, fontFamily: 'IRANSansMobile', fontSize: 16 }}>
                                 نمرات
                             </Text>
                         </Button>
-                        <Button style={{ elevation: 10, borderRadius: 15, backgroundColor: '#FF7043' }} onPress={this.Exams.bind(this)} >
+                        <Button style={{ elevation: 10,  backgroundColor: '#FF7043',borderTopRightRadius:15,borderBottomLeftRadius:15 }} onPress={this.Exams.bind(this)} >
                             <Text style={{ padding: 10, fontFamily: 'IRANSansMobile', fontSize: 16 }}>
                                 برنامه امتحانات
                             </Text>
@@ -76,12 +76,12 @@ class MyModal extends Component {
 
                     </View>
                     <View style={{ flex: 1, justifyContent: 'space-around', flexDirection: 'row', margin: 7 }}>
-                        <Button style={{ elevation: 10, backgroundColor: '#FF7043', borderRadius: 15 }}>
+                        <Button style={{ elevation: 10, backgroundColor: '#FF7043',  borderTopLeftRadius:15,borderBottomRightRadius:15 }}>
                             <Text style={{ padding: 10, fontFamily: 'IRANSansMobile', fontSize: 16 }}>
                                 اطلاعیه ها
                             </Text>
                         </Button>
-                        <Button style={{ elevation: 10, borderRadius: 15, backgroundColor: '#FF7043' }} onPress={this.help.bind(this)}>
+                        <Button style={{ elevation: 10, borderTopLeftRadius:15,borderBottomRightRadius:15, backgroundColor: '#FF7043' }} onPress={this.help.bind(this)}>
                             <Text style={{ padding: 10, fontFamily: 'IRANSansMobile', fontSize: 16 }}>
                                 پشتیبانی و ایمیل دبیر ها
                             </Text>
@@ -122,7 +122,7 @@ class Home extends Component {
                     }} ></Icon>}
                     body={<Text style={{ color: 'white', fontFamily: 'IRANSansMobile_Medium' }} >{username}</Text>}
                     right={<LottieView style={{width:60,height:60}} source={require('../animation/user.json')} autoPlay  />} />
-                <View style={{ flex: 0.5 }}>
+                <View style={{ flex: 1 }}>
                     <Card>
                         <CardItem header bordered >
                             <Left>
@@ -135,11 +135,31 @@ class Home extends Component {
                         </CardItem>
                         <CardItem style={styles.secondCardItem}>
                             <Right>
+                                <Text style={styles.secondCardItemRightText}>نام و نام خانوادگی : </Text>
+                            </Right>
+                            <Left>
+                                <Text style={styles.secondCardItemLeftText}>
+                                    {username}
+                                </Text>
+                            </Left>
+                        </CardItem>
+                        <CardItem style={styles.secondCardItem}>
+                            <Right>
                                 <Text style={styles.secondCardItemRightText}>میانگین دروس : </Text>
                             </Right>
                             <Left>
                                 <Text style={styles.secondCardItemLeftText}>
                                     {this.props.navigation.state.params.userData.element.total_Ave}
+                                </Text>
+                            </Left>
+                        </CardItem>
+                        <CardItem style={styles.secondCardItem}>
+                            <Right>
+                                <Text style={styles.secondCardItemRightText}> کد ملّی </Text>
+                            </Right>
+                            <Left>
+                                <Text style={styles.secondCardItemLeftText}>
+                                    {this.props.navigation.state.params.userData.element.national_id}
                                 </Text>
                             </Left>
                         </CardItem>
@@ -150,6 +170,16 @@ class Home extends Component {
                             <Left>
                                 <Text style={styles.thrCardItemLeftText}>
                                     {this.props.navigation.state.params.userData.element.mobile_phone}
+                                </Text>
+                            </Left>
+                        </CardItem>
+                        <CardItem style={styles.secondCardItem}>
+                            <Right>
+                                <Text style={styles.secondCardItemRightText}> نام پدر :</Text>
+                            </Right>
+                            <Left>
+                                <Text style={styles.secondCardItemLeftText}>
+                                    {this.props.navigation.state.params.userData.element.father_name}
                                 </Text>
                             </Left>
                         </CardItem>
@@ -168,8 +198,8 @@ class Home extends Component {
                 <View style={{
                     flex: 0.5
                 }}>
-                    <View style={{ flex: 0.3, justifyContent: 'center', alignItems: 'center' }}>
-                        <Button onPress={this.showInformation}  >
+                    <View style={{ flex: 0.3, justifyContent: 'center', alignItems: 'center', marginTop:8 ,marginBottom:8}}>
+                        <Button onPress={this.showInformation} style={{borderTopRightRadius:15,borderBottomLeftRadius:15,backgroundColor:'#EC407A'}}  >
                             <Text style={{ marginLeft: 8, marginRight: 8, fontFamily: 'IRANSansMobile_Light', fontSize: 18 }}>
                                 نمایش اطلاعات
                                     </Text>
