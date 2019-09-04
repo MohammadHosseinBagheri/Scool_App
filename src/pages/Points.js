@@ -1,24 +1,25 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { FlatList } from 'react-native-gesture-handler';
-import { Card, CardItem, Icon } from 'native-base';
+import { Card, CardItem, Icon, Picker } from 'native-base';
 import LinearGradient from 'react-native-linear-gradient';
 import MyHeader from '../components/MyHeader';
 class Points extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            data: []
-
+            data: [],
+            pickerValue: 0
         };
     }
     async componentWillMount() {
         await this.fetchPoints();
+        await console.log(this.state.data)
     }
     render() {
         const property = this.props
         return (
-            <View style={{ flex: 1, backgroundColor: '#455A64' }} >
+            <View style={{ flex: 1, backgroundColor: '#455A64', flexDirection: 'column' }} >
                 <MyHeader
                     left={<Icon name={'arrow-back'} style={{ color: 'white' }} onPress={() => {
                         this.props.navigation.goBack()
@@ -26,36 +27,409 @@ class Points extends Component {
                     right={<Icon name={'book'} style={{ color: 'white' }} />}
                     body={<Text style={{ fontFamily: 'IRANSansMobile', color: 'white', fontSize: 16 }} >نمرات و کارنامه  </Text>}
                 />
-                <FlatList
-                    data={this.state.data}
-                    keyExtractor={({ item, index }) => (index)}
-                    renderItem={
-                        ({ item }) => (
-                            <View>
-                                <Card>
+                <View style={{ flex: 0.1, flexDirection: 'row-reverse', justifyContent: 'center', alignItems: 'center' }} >
+                    <Text style={{ color: 'white', fontFamily: 'IRANSansMobile', fontSize: 16 }}>
+                        تفکیک کارنامه به صورت ماه
+                    </Text>
+                    <Picker
+                        selectedValue={this.state.pickerValue}
+                        style={{ height: 50, width: 70, fontFamily: 'IRANSansMobile', color: 'white', borderColor: 'white', borderBottomWidth: 2 }}
+                        onValueChange={(itemValue, itemIndex) =>
+                            this.setState({ pickerValue: itemValue })}
+                    >
+                        <Picker.Item label={'تمام نمرات'} value={0} />
+                        <Picker.Item label={'مهر'} value={7} />
+                        <Picker.Item label={'ابان'} value={8} />
+                        <Picker.Item label={'آذر'} value={9} />
+                        <Picker.Item label={'دی'} value={10} />
+                        <Picker.Item label={'بهمن'} value={11} />
+                        <Picker.Item label={'اسفند'} value={12} />
+                        <Picker.Item label={'فروردین'} value={1} />
+                        <Picker.Item label={'اردیبهشت'} value={2} />
+                        <Picker.Item label={'خرداد'} value={3} />
 
-                                    <CardItem header bordered style={{ backgroundColor: '#ECEFF1' }} >
-                                        <View style={{ flex: 1, flexDirection: 'row-reverse', justifyContent: 'space-between' }}>
-                                            <Text style={[styles.cardBodyText, { fontFamily: 'IRANSansMobile_Light', elevation: 5 }]}> نام درس : {item.Corse_name} </Text>
-                                            <Text style={[styles.cardBodyText, { fontFamily: 'IRANSansMobile_Light', elevation: 5 }]}>  نوع : {item.type} </Text>
-                                            <Text style={[styles.cardBodyText, { fontFamily: 'IRANSansMobile_Light', elevation: 5 }]}>   کلید :  {item.exam_id} </Text>
-                                        </View>
-                                    </CardItem>
+                    </Picker>
+                </View>
+                <View style={{ flex: 1 }} >
+                    {
+                        this.state.pickerValue==0?(
+                            <FlatList
+                        data={this.state.data}
+                        keyExtractor={({ item, index }) => (index)}
+                        renderItem={
+                            ({ item }) => (
+                                <View>
+                                    <Card>
 
-                                    <CardItem cardBody style={{ flex: 1 }}>
-                                        <LinearGradient colors={['#FF7043','#FFF176','#66BB6A']} style={{ flex: 1, flexDirection: 'column', justifyContent: 'center', }} >
+                                        <CardItem header bordered style={{ backgroundColor: '#ECEFF1' }} >
+                                            <View style={{ flex: 1, flexDirection: 'row-reverse', justifyContent: 'space-between' }}>
+                                                <Text style={[styles.cardBodyText, { fontFamily: 'IRANSansMobile_Light', elevation: 5 }]}> نام درس : {item.Corse_name} </Text>
+                                                <Text style={[styles.cardBodyText, { fontFamily: 'IRANSansMobile_Light', elevation: 5 }]}>  نوع : {item.type} </Text>
+                                                <Text style={[styles.cardBodyText, { fontFamily: 'IRANSansMobile_Light', elevation: 5 }]}>   کلید :  {item.exam_id} </Text>
+                                            </View>
+                                        </CardItem>
+
+                                        <CardItem cardBody style={{ flex: 1 }}>
+                                            <LinearGradient colors={['#FF7043', '#FFF176', '#66BB6A']} style={{ flex: 1, flexDirection: 'column', justifyContent: 'center', }} >
                                                 <Text style={styles.cardBodyText}>  نمره :  {item.grade} </Text>
                                                 <Text style={styles.cardBodyText}>  سال :  {item.year} </Text>
                                                 <Text style={styles.cardBodyText}>  ماه :  {item.month} </Text>
                                                 <Text style={styles.cardBodyText}>  روز :  {item.day} </Text>
                                                 <Text style={styles.cardBodyText}>  نام ارزیابی :  {item.exam_name} </Text>
-                                        </LinearGradient>
-                                    </CardItem>
-                                </Card>
-                            </View>
+                                            </LinearGradient>
+                                        </CardItem>
+                                    </Card>
+                                </View>
+                            )
+                        }
+                    />
                         )
+                        :
+                        this.state.pickerValue==7?(
+                            <FlatList
+                        data={this.state.data}
+                        keyExtractor={({ item, index }) => (index)}
+                        renderItem={
+                            ({ item }) => (
+                                (item.month==7?(
+                                    <View>
+                                    <Card>
+
+                                        <CardItem header bordered style={{ backgroundColor: '#ECEFF1' }} >
+                                            <View style={{ flex: 1, flexDirection: 'row-reverse', justifyContent: 'space-between' }}>
+                                                <Text style={[styles.cardBodyText, { fontFamily: 'IRANSansMobile_Light', elevation: 5 }]}> نام درس : {item.Corse_name} </Text>
+                                                <Text style={[styles.cardBodyText, { fontFamily: 'IRANSansMobile_Light', elevation: 5 }]}>  نوع : {item.type} </Text>
+                                                <Text style={[styles.cardBodyText, { fontFamily: 'IRANSansMobile_Light', elevation: 5 }]}>   کلید :  {item.exam_id} </Text>
+                                            </View>
+                                        </CardItem>
+
+                                        <CardItem cardBody style={{ flex: 1 }}>
+                                            <LinearGradient colors={['#FF7043', '#FFF176', '#66BB6A']} style={{ flex: 1, flexDirection: 'column', justifyContent: 'center', }} >
+                                                <Text style={styles.cardBodyText}>  نمره :  {item.grade} </Text>
+                                                <Text style={styles.cardBodyText}>  سال :  {item.year} </Text>
+                                                <Text style={styles.cardBodyText}>  ماه :  {item.month} </Text>
+                                                <Text style={styles.cardBodyText}>  روز :  {item.day} </Text>
+                                                <Text style={styles.cardBodyText}>  نام ارزیابی :  {item.exam_name} </Text>
+                                            </LinearGradient>
+                                        </CardItem>
+                                    </Card>
+                                </View>
+                                )
+                                :
+                                (null)
+                                )
+                            )
+                        }
+                    />
+                        )
+                        :
+                        this.state.pickerValue==8?
+                        (
+                            <FlatList
+                        data={this.state.data}
+                        keyExtractor={({ item, index }) => (index)}
+                        renderItem={
+                            ({ item }) => (
+                                (item.month==8?(
+                                    <View>
+                                    <Card>
+
+                                        <CardItem header bordered style={{ backgroundColor: '#ECEFF1' }} >
+                                            <View style={{ flex: 1, flexDirection: 'row-reverse', justifyContent: 'space-between' }}>
+                                                <Text style={[styles.cardBodyText, { fontFamily: 'IRANSansMobile_Light', elevation: 5 }]}> نام درس : {item.Corse_name} </Text>
+                                                <Text style={[styles.cardBodyText, { fontFamily: 'IRANSansMobile_Light', elevation: 5 }]}>  نوع : {item.type} </Text>
+                                                <Text style={[styles.cardBodyText, { fontFamily: 'IRANSansMobile_Light', elevation: 5 }]}>   کلید :  {item.exam_id} </Text>
+                                            </View>
+                                        </CardItem>
+
+                                        <CardItem cardBody style={{ flex: 1 }}>
+                                            <LinearGradient colors={['#FF7043', '#FFF176', '#66BB6A']} style={{ flex: 1, flexDirection: 'column', justifyContent: 'center', }} >
+                                                <Text style={styles.cardBodyText}>  نمره :  {item.grade} </Text>
+                                                <Text style={styles.cardBodyText}>  سال :  {item.year} </Text>
+                                                <Text style={styles.cardBodyText}>  ماه :  {item.month} </Text>
+                                                <Text style={styles.cardBodyText}>  روز :  {item.day} </Text>
+                                                <Text style={styles.cardBodyText}>  نام ارزیابی :  {item.exam_name} </Text>
+                                            </LinearGradient>
+                                        </CardItem>
+                                    </Card>
+                                </View>
+                                )
+                                :
+                                (null)
+                                )
+                            )
+                        }
+                    />
+                        )
+                        :
+                        this.state.pickerValue==9?(
+                            <FlatList
+                        data={this.state.data}
+                        keyExtractor={({ item, index }) => (index)}
+                        renderItem={
+                            ({ item }) => (
+                                (item.month==9?(
+                                    <View>
+                                    <Card>
+
+                                        <CardItem header bordered style={{ backgroundColor: '#ECEFF1' }} >
+                                            <View style={{ flex: 1, flexDirection: 'row-reverse', justifyContent: 'space-between' }}>
+                                                <Text style={[styles.cardBodyText, { fontFamily: 'IRANSansMobile_Light', elevation: 5 }]}> نام درس : {item.Corse_name} </Text>
+                                                <Text style={[styles.cardBodyText, { fontFamily: 'IRANSansMobile_Light', elevation: 5 }]}>  نوع : {item.type} </Text>
+                                                <Text style={[styles.cardBodyText, { fontFamily: 'IRANSansMobile_Light', elevation: 5 }]}>   کلید :  {item.exam_id} </Text>
+                                            </View>
+                                        </CardItem>
+
+                                        <CardItem cardBody style={{ flex: 1 }}>
+                                            <LinearGradient colors={['#FF7043', '#FFF176', '#66BB6A']} style={{ flex: 1, flexDirection: 'column', justifyContent: 'center', }} >
+                                                <Text style={styles.cardBodyText}>  نمره :  {item.grade} </Text>
+                                                <Text style={styles.cardBodyText}>  سال :  {item.year} </Text>
+                                                <Text style={styles.cardBodyText}>  ماه :  {item.month} </Text>
+                                                <Text style={styles.cardBodyText}>  روز :  {item.day} </Text>
+                                                <Text style={styles.cardBodyText}>  نام ارزیابی :  {item.exam_name} </Text>
+                                            </LinearGradient>
+                                        </CardItem>
+                                    </Card>
+                                </View>
+                                )
+                                :
+                                (null)
+                                )
+                            )
+                        }
+                    />
+                        )
+                        :
+                        this.state.pickerValue==10?(
+                            <FlatList
+                        data={this.state.data}
+                        keyExtractor={({ item, index }) => (index)}
+                        renderItem={
+                            ({ item }) => (
+                                (item.month==10?(
+                                    <View>
+                                    <Card>
+
+                                        <CardItem header bordered style={{ backgroundColor: '#ECEFF1' }} >
+                                            <View style={{ flex: 1, flexDirection: 'row-reverse', justifyContent: 'space-between' }}>
+                                                <Text style={[styles.cardBodyText, { fontFamily: 'IRANSansMobile_Light', elevation: 5 }]}> نام درس : {item.Corse_name} </Text>
+                                                <Text style={[styles.cardBodyText, { fontFamily: 'IRANSansMobile_Light', elevation: 5 }]}>  نوع : {item.type} </Text>
+                                                <Text style={[styles.cardBodyText, { fontFamily: 'IRANSansMobile_Light', elevation: 5 }]}>   کلید :  {item.exam_id} </Text>
+                                            </View>
+                                        </CardItem>
+
+                                        <CardItem cardBody style={{ flex: 1 }}>
+                                            <LinearGradient colors={['#FF7043', '#FFF176', '#66BB6A']} style={{ flex: 1, flexDirection: 'column', justifyContent: 'center', }} >
+                                                <Text style={styles.cardBodyText}>  نمره :  {item.grade} </Text>
+                                                <Text style={styles.cardBodyText}>  سال :  {item.year} </Text>
+                                                <Text style={styles.cardBodyText}>  ماه :  {item.month} </Text>
+                                                <Text style={styles.cardBodyText}>  روز :  {item.day} </Text>
+                                                <Text style={styles.cardBodyText}>  نام ارزیابی :  {item.exam_name} </Text>
+                                            </LinearGradient>
+                                        </CardItem>
+                                    </Card>
+                                </View>
+                                )
+                                :
+                                (null)
+                                )
+                            )
+                        }
+                    />
+                        )
+                        :
+                        this.state.pickerValue==11?(
+                            <FlatList
+                        data={this.state.data}
+                        keyExtractor={({ item, index }) => (index)}
+                        renderItem={
+                            ({ item }) => (
+                                (item.month==11?(
+                                    <View>
+                                    <Card>
+
+                                        <CardItem header bordered style={{ backgroundColor: '#ECEFF1' }} >
+                                            <View style={{ flex: 1, flexDirection: 'row-reverse', justifyContent: 'space-between' }}>
+                                                <Text style={[styles.cardBodyText, { fontFamily: 'IRANSansMobile_Light', elevation: 5 }]}> نام درس : {item.Corse_name} </Text>
+                                                <Text style={[styles.cardBodyText, { fontFamily: 'IRANSansMobile_Light', elevation: 5 }]}>  نوع : {item.type} </Text>
+                                                <Text style={[styles.cardBodyText, { fontFamily: 'IRANSansMobile_Light', elevation: 5 }]}>   کلید :  {item.exam_id} </Text>
+                                            </View>
+                                        </CardItem>
+
+                                        <CardItem cardBody style={{ flex: 1 }}>
+                                            <LinearGradient colors={['#FF7043', '#FFF176', '#66BB6A']} style={{ flex: 1, flexDirection: 'column', justifyContent: 'center', }} >
+                                                <Text style={styles.cardBodyText}>  نمره :  {item.grade} </Text>
+                                                <Text style={styles.cardBodyText}>  سال :  {item.year} </Text>
+                                                <Text style={styles.cardBodyText}>  ماه :  {item.month} </Text>
+                                                <Text style={styles.cardBodyText}>  روز :  {item.day} </Text>
+                                                <Text style={styles.cardBodyText}>  نام ارزیابی :  {item.exam_name} </Text>
+                                            </LinearGradient>
+                                        </CardItem>
+                                    </Card>
+                                </View>
+                                )
+                                :
+                                (null)
+                                )
+                            )
+                        }
+                    />
+                        )
+                        :
+                        this.state.pickerValue==12?(
+                            <FlatList
+                        data={this.state.data}
+                        keyExtractor={({ item, index }) => (index)}
+                        renderItem={
+                            ({ item }) => (
+                                (item.month==12?(
+                                    <View>
+                                    <Card>
+
+                                        <CardItem header bordered style={{ backgroundColor: '#ECEFF1' }} >
+                                            <View style={{ flex: 1, flexDirection: 'row-reverse', justifyContent: 'space-between' }}>
+                                                <Text style={[styles.cardBodyText, { fontFamily: 'IRANSansMobile_Light', elevation: 5 }]}> نام درس : {item.Corse_name} </Text>
+                                                <Text style={[styles.cardBodyText, { fontFamily: 'IRANSansMobile_Light', elevation: 5 }]}>  نوع : {item.type} </Text>
+                                                <Text style={[styles.cardBodyText, { fontFamily: 'IRANSansMobile_Light', elevation: 5 }]}>   کلید :  {item.exam_id} </Text>
+                                            </View>
+                                        </CardItem>
+
+                                        <CardItem cardBody style={{ flex: 1 }}>
+                                            <LinearGradient colors={['#FF7043', '#FFF176', '#66BB6A']} style={{ flex: 1, flexDirection: 'column', justifyContent: 'center', }} >
+                                                <Text style={styles.cardBodyText}>  نمره :  {item.grade} </Text>
+                                                <Text style={styles.cardBodyText}>  سال :  {item.year} </Text>
+                                                <Text style={styles.cardBodyText}>  ماه :  {item.month} </Text>
+                                                <Text style={styles.cardBodyText}>  روز :  {item.day} </Text>
+                                                <Text style={styles.cardBodyText}>  نام ارزیابی :  {item.exam_name} </Text>
+                                            </LinearGradient>
+                                        </CardItem>
+                                    </Card>
+                                </View>
+                                )
+                                :
+                                (null)
+                                )
+                            )
+                        }
+                    />
+                        )
+                        :
+                        this.state.pickerValue==1?(
+                            <FlatList
+                        data={this.state.data}
+                        keyExtractor={({ item, index }) => (index)}
+                        renderItem={
+                            ({ item }) => (
+                                (item.month==1?(
+                                    <View>
+                                    <Card>
+
+                                        <CardItem header bordered style={{ backgroundColor: '#ECEFF1' }} >
+                                            <View style={{ flex: 1, flexDirection: 'row-reverse', justifyContent: 'space-between' }}>
+                                                <Text style={[styles.cardBodyText, { fontFamily: 'IRANSansMobile_Light', elevation: 5 }]}> نام درس : {item.Corse_name} </Text>
+                                                <Text style={[styles.cardBodyText, { fontFamily: 'IRANSansMobile_Light', elevation: 5 }]}>  نوع : {item.type} </Text>
+                                                <Text style={[styles.cardBodyText, { fontFamily: 'IRANSansMobile_Light', elevation: 5 }]}>   کلید :  {item.exam_id} </Text>
+                                            </View>
+                                        </CardItem>
+
+                                        <CardItem cardBody style={{ flex: 1 }}>
+                                            <LinearGradient colors={['#FF7043', '#FFF176', '#66BB6A']} style={{ flex: 1, flexDirection: 'column', justifyContent: 'center', }} >
+                                                <Text style={styles.cardBodyText}>  نمره :  {item.grade} </Text>
+                                                <Text style={styles.cardBodyText}>  سال :  {item.year} </Text>
+                                                <Text style={styles.cardBodyText}>  ماه :  {item.month} </Text>
+                                                <Text style={styles.cardBodyText}>  روز :  {item.day} </Text>
+                                                <Text style={styles.cardBodyText}>  نام ارزیابی :  {item.exam_name} </Text>
+                                            </LinearGradient>
+                                        </CardItem>
+                                    </Card>
+                                </View>
+                                )
+                                :
+                                (null)
+                                )
+                            )
+                        }
+                    />
+                        )
+                        :
+                        this.state.pickerValue==2?(
+                            <FlatList
+                        data={this.state.data}
+                        keyExtractor={({ item, index }) => (index)}
+                        renderItem={
+                            ({ item }) => (
+                                (item.month==2?(
+                                    <View>
+                                    <Card>
+
+                                        <CardItem header bordered style={{ backgroundColor: '#ECEFF1' }} >
+                                            <View style={{ flex: 1, flexDirection: 'row-reverse', justifyContent: 'space-between' }}>
+                                                <Text style={[styles.cardBodyText, { fontFamily: 'IRANSansMobile_Light', elevation: 5 }]}> نام درس : {item.Corse_name} </Text>
+                                                <Text style={[styles.cardBodyText, { fontFamily: 'IRANSansMobile_Light', elevation: 5 }]}>  نوع : {item.type} </Text>
+                                                <Text style={[styles.cardBodyText, { fontFamily: 'IRANSansMobile_Light', elevation: 5 }]}>   کلید :  {item.exam_id} </Text>
+                                            </View>
+                                        </CardItem>
+
+                                        <CardItem cardBody style={{ flex: 1 }}>
+                                            <LinearGradient colors={['#FF7043', '#FFF176', '#66BB6A']} style={{ flex: 1, flexDirection: 'column', justifyContent: 'center', }} >
+                                                <Text style={styles.cardBodyText}>  نمره :  {item.grade} </Text>
+                                                <Text style={styles.cardBodyText}>  سال :  {item.year} </Text>
+                                                <Text style={styles.cardBodyText}>  ماه :  {item.month} </Text>
+                                                <Text style={styles.cardBodyText}>  روز :  {item.day} </Text>
+                                                <Text style={styles.cardBodyText}>  نام ارزیابی :  {item.exam_name} </Text>
+                                            </LinearGradient>
+                                        </CardItem>
+                                    </Card>
+                                </View>
+                                )
+                                :
+                                (null)
+                                )
+                            )
+                        }
+                    />
+                        )
+                        :
+                        this.state.pickerValue==3?(
+                            <FlatList
+                        data={this.state.data}
+                        keyExtractor={({ item, index }) => (index)}
+                        renderItem={
+                            ({ item }) => (
+                                (item.month==3?(
+                                    <View>
+                                    <Card>
+
+                                        <CardItem header bordered style={{ backgroundColor: '#ECEFF1' }} >
+                                            <View style={{ flex: 1, flexDirection: 'row-reverse', justifyContent: 'space-between' }}>
+                                                <Text style={[styles.cardBodyText, { fontFamily: 'IRANSansMobile_Light', elevation: 5 }]}> نام درس : {item.Corse_name} </Text>
+                                                <Text style={[styles.cardBodyText, { fontFamily: 'IRANSansMobile_Light', elevation: 5 }]}>  نوع : {item.type} </Text>
+                                                <Text style={[styles.cardBodyText, { fontFamily: 'IRANSansMobile_Light', elevation: 5 }]}>   کلید :  {item.exam_id} </Text>
+                                            </View>
+                                        </CardItem>
+
+                                        <CardItem cardBody style={{ flex: 1 }}>
+                                            <LinearGradient colors={['#FF7043', '#FFF176', '#66BB6A']} style={{ flex: 1, flexDirection: 'column', justifyContent: 'center', }} >
+                                                <Text style={styles.cardBodyText}>  نمره :  {item.grade} </Text>
+                                                <Text style={styles.cardBodyText}>  سال :  {item.year} </Text>
+                                                <Text style={styles.cardBodyText}>  ماه :  {item.month} </Text>
+                                                <Text style={styles.cardBodyText}>  روز :  {item.day} </Text>
+                                                <Text style={styles.cardBodyText}>  نام ارزیابی :  {item.exam_name} </Text>
+                                            </LinearGradient>
+                                        </CardItem>
+                                    </Card>
+                                </View>
+                                )
+                                :
+                                (null)
+                                )
+                            )
+                        }
+                    />
+                        )
+                        :null
                     }
-                />
+                </View>
             </View>
         );
     }
