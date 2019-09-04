@@ -208,7 +208,7 @@ class Home extends Component {
                     flex: 0.5
                 }}>
                     <View style={{ flex: 0.3, justifyContent: 'center', alignItems: 'center', marginTop: 8, marginBottom: 8 }}>
-                        <Button onPress={this.showInformation} style={{ borderTopRightRadius: 15, borderBottomLeftRadius: 15, backgroundColor: '#EC407A' }}  >
+                        <Button onPress={this.showInformation} style={{ borderTopRightRadius: 15, borderBottomLeftRadius: 15, backgroundColor: '#FF9E80' }}  >
                             <Text style={{ marginLeft: 8, marginRight: 8, fontFamily: 'IRANSansMobile_Light', fontSize: 18 }}>
                                 نمایش اطلاعات
                                     </Text>
