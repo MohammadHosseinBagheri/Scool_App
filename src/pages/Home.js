@@ -35,9 +35,9 @@ class MyModal extends Component {
             }
         })
     }
-    help(){
+    help() {
         console.log(this.props)
-        const userInfo=this.props
+        const userInfo = this.props
         this.props.someProp.navigation.navigate('HelpEmail', {
             userInfo: {
                 national_id: userInfo
@@ -52,8 +52,8 @@ class MyModal extends Component {
                     backgroundColor: '#66BB6A',
                     borderRadius: 10,
                     justifyContent: 'center',
-                    width: screen.width ,
-                    elevation:20
+                    width: screen.width,
+                    elevation: 20
                 }}
                 position={'bottom'}
                 ref={'modal'}
@@ -61,14 +61,14 @@ class MyModal extends Component {
                 onClosed={() => {
                     alert('modal closed')
                 }}>
-                <View style={{  flex: 1, flexDirection: 'column', backgroundColor: '#66BB6A' }}>
+                <View style={{ flex: 1, flexDirection: 'column', backgroundColor: '#66BB6A' }}>
                     <View style={{ flex: 1, justifyContent: 'space-around', flexDirection: 'row', margin: 7 }}>
-                        <Button style={{ elevation: 10,  backgroundColor: '#FF7043' ,borderTopRightRadius:15,borderBottomLeftRadius:15}} onPress={this.showPoint.bind(this)} >
+                        <Button style={{ elevation: 10, backgroundColor: '#FF7043', borderTopRightRadius: 15, borderBottomLeftRadius: 15 }} onPress={this.showPoint.bind(this)} >
                             <Text style={{ padding: 10, fontFamily: 'IRANSansMobile', fontSize: 16 }}>
                                 نمرات
                             </Text>
                         </Button>
-                        <Button style={{ elevation: 10,  backgroundColor: '#FF7043',borderTopRightRadius:15,borderBottomLeftRadius:15 }} onPress={this.Exams.bind(this)} >
+                        <Button style={{ elevation: 10, backgroundColor: '#FF7043', borderTopRightRadius: 15, borderBottomLeftRadius: 15 }} onPress={this.Exams.bind(this)} >
                             <Text style={{ padding: 10, fontFamily: 'IRANSansMobile', fontSize: 16 }}>
                                 برنامه امتحانات
                             </Text>
@@ -76,12 +76,12 @@ class MyModal extends Component {
 
                     </View>
                     <View style={{ flex: 1, justifyContent: 'space-around', flexDirection: 'row', margin: 7 }}>
-                        <Button style={{ elevation: 10, backgroundColor: '#FF7043',  borderTopLeftRadius:15,borderBottomRightRadius:15 }}>
+                        <Button style={{ elevation: 10, backgroundColor: '#FF7043', borderTopLeftRadius: 15, borderBottomRightRadius: 15 }}>
                             <Text style={{ padding: 10, fontFamily: 'IRANSansMobile', fontSize: 16 }}>
                                 اطلاعیه ها
                             </Text>
                         </Button>
-                        <Button style={{ elevation: 10, borderTopLeftRadius:15,borderBottomRightRadius:15, backgroundColor: '#FF7043' }} onPress={this.help.bind(this)}>
+                        <Button style={{ elevation: 10, borderTopLeftRadius: 15, borderBottomRightRadius: 15, backgroundColor: '#FF7043' }} onPress={this.help.bind(this)}>
                             <Text style={{ padding: 10, fontFamily: 'IRANSansMobile', fontSize: 16 }}>
                                 پشتیبانی و ایمیل دبیر ها
                             </Text>
@@ -117,11 +117,20 @@ class Home extends Component {
         return (
             <View style={{ flex: 1, flexDirection: 'column', backgroundColor: '#455A64' }}>
                 <MyHeader
-                    left={<Icon name={'menu'} style={{color:'white'}} onPress={()=>{
-                        this.props.navigation.openDrawer()
-                    }} ></Icon>}
+                    // left={<Icon name={'menu'} style={{color:'white'}} onPress={()=>{
+                    //     this.props.navigation.openDrawer()
+                    // }} ></Icon>}
+                    left={
+                        <Button transparent onPress={() => {
+                            this.props.navigation.openDrawer()
+                        }} >
+                            <LottieView style={{ width: 40 }} source={require('../animation/menu.json')} autoPlay loop
+
+                            />
+                        </Button>
+                    }
                     body={<Text style={{ color: 'white', fontFamily: 'IRANSansMobile_Medium' }} >{username}</Text>}
-                    right={<LottieView style={{width:60,height:60}} source={require('../animation/user.json')} autoPlay  />} />
+                    right={<LottieView style={{ width: 60, height: 60 }} source={require('../animation/user.json')} autoPlay />} />
                 <View style={{ flex: 1 }}>
                     <Card>
                         <CardItem header bordered >
@@ -198,8 +207,8 @@ class Home extends Component {
                 <View style={{
                     flex: 0.5
                 }}>
-                    <View style={{ flex: 0.3, justifyContent: 'center', alignItems: 'center', marginTop:8 ,marginBottom:8}}>
-                        <Button onPress={this.showInformation} style={{borderTopRightRadius:15,borderBottomLeftRadius:15,backgroundColor:'#EC407A'}}  >
+                    <View style={{ flex: 0.3, justifyContent: 'center', alignItems: 'center', marginTop: 8, marginBottom: 8 }}>
+                        <Button onPress={this.showInformation} style={{ borderTopRightRadius: 15, borderBottomLeftRadius: 15, backgroundColor: '#EC407A' }}  >
                             <Text style={{ marginLeft: 8, marginRight: 8, fontFamily: 'IRANSansMobile_Light', fontSize: 18 }}>
                                 نمایش اطلاعات
                                     </Text>
