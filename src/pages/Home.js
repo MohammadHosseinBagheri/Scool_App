@@ -49,7 +49,7 @@ class MyModal extends Component {
         return (
             <Modal
                 style={{
-                    backgroundColor: '#66BB6A',
+                    backgroundColor: '#E0F2F1',
                     borderRadius: 10,
                     justifyContent: 'center',
                     width: screen.width,
@@ -58,10 +58,8 @@ class MyModal extends Component {
                 position={'bottom'}
                 ref={'modal'}
                 backdrop={true}
-                onClosed={() => {
-                    alert('modal closed')
-                }}>
-                <View style={{ flex: 1, flexDirection: 'column', backgroundColor: '#66BB6A' }}>
+                >
+                <View style={{ flex: 1, flexDirection: 'column', backgroundColor: '#80CBC4' }}>
                     <View style={{ flex: 1, justifyContent: 'space-around', flexDirection: 'row', margin: 7 }}>
                         <Button style={{ elevation: 10, backgroundColor: '#FF7043', borderTopRightRadius: 15, borderBottomLeftRadius: 15 }} onPress={this.showPoint.bind(this)} >
                             <Text style={{ padding: 10, fontFamily: 'IRANSansMobile', fontSize: 16 }}>
@@ -117,25 +115,25 @@ class Home extends Component {
         return (
             <View style={{ flex: 1, flexDirection: 'column', backgroundColor: '#455A64' }}>
                 <MyHeader
-                    // left={<Icon name={'menu'} style={{color:'white'}} onPress={()=>{
-                    //     this.props.navigation.openDrawer()
-                    // }} ></Icon>}
-                    left={
-                        <Button transparent onPress={() => {
-                            this.props.navigation.openDrawer()
-                        }} >
-                            <LottieView style={{ width: 40 }} source={require('../animation/menu.json')} autoPlay loop
+                    left={<Icon name={'menu'} style={{color:'white'}} onPress={()=>{
+                        this.props.navigation.openDrawer()
+                    }} ></Icon>}
+                    // left={
+                    //     <Button transparent onPress={() => {
+                    //         this.props.navigation.openDrawer()
+                    //     }} >
+                    //         <LottieView style={{ width: 40 }} source={require('../animation/menu.json')} autoPlay loop
 
-                            />
-                        </Button>
-                    }
+                    //         />
+                    //     </Button>
+                    // }
                     body={<Text style={{ color: 'white', fontFamily: 'IRANSansMobile_Medium' }} >{username}</Text>}
                     right={<LottieView style={{ width: 60, height: 60 }} source={require('../animation/user.json')} autoPlay />} />
                 <View style={{ flex: 1 }}>
                     <Card>
-                        <CardItem header bordered >
+                        <CardItem header bordered style={{backgroundColor:'#E0E0E0'}} >
                             <Left>
-                                <Thumbnail style={styles.thumnail} source={{ uri: 'https://pickaface.net/assets/images/slides/slide2.png' }} />
+                                <Icon style={styles.thumnail} name={'ios-contact'} />
                             </Left>
                             <Body>
                                 <Text style={styles.cardBodyText}>اطلاعات درسی دانش آموز</Text>
@@ -208,7 +206,7 @@ class Home extends Component {
                     flex: 0.5
                 }}>
                     <View style={{ flex: 0.3, justifyContent: 'center', alignItems: 'center', marginTop: 8, marginBottom: 8 }}>
-                        <Button onPress={this.showInformation} style={{ borderTopRightRadius: 15, borderBottomLeftRadius: 15, backgroundColor: '#FF9E80' }}  >
+                        <Button onPress={this.showInformation} style={{ borderTopRightRadius: 15, borderBottomLeftRadius: 15, backgroundColor: '#00ACC1' }}  >
                             <Text style={{ marginLeft: 8, marginRight: 8, fontFamily: 'IRANSansMobile_Light', fontSize: 18 }}>
                                 نمایش اطلاعات
                                     </Text>
@@ -262,7 +260,7 @@ const styles = StyleSheet.create({
         fontSize: 22
     },
     thumnail: {
-        width: 40,
+        width: 60,
         height: 40
     },
     cardBodyText: {
