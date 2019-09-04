@@ -5,6 +5,9 @@ import { FlatList } from 'react-native-gesture-handler';
 import LottieView from 'lottie-react-native';
 import MyHeader from '../components/MyHeader';
 class HelpEmail extends Component {
+    static navigationOptions=({navigation})=>(
+        this.props
+    )
     constructor(props) {
         super(props);
         this.state = {

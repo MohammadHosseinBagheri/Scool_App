@@ -24,7 +24,9 @@ class Points extends Component {
                     left={<Icon name={'arrow-back'} style={{ color: 'white' }} onPress={() => {
                         this.props.navigation.goBack()
                     }} />}
-                    right={<Icon name={'book'} style={{ color: 'white' }} />}
+                    right={<Icon name={'book'} style={{ color: 'white' }} onPress={() => {
+                        this.props.navigation.openDrawer()
+                    }} />}
                     body={<Text style={{ fontFamily: 'IRANSansMobile', color: 'white', fontSize: 16 }} >نمرات و کارنامه  </Text>}
                 />
                 <View style={{ flex: 0.1, flexDirection: 'row-reverse', justifyContent: 'center', alignItems: 'center', marginRight: 10 }} >
