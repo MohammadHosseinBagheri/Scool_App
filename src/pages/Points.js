@@ -84,14 +84,14 @@ class Points extends Component {
                                         </View>
                                     )
                                 }
-                                keyExtractor={() => (Math.floor(Math.random()*10000).toString())}
+                                keyExtractor={() => (Math.floor(Math.random() * 10000).toString())}
                             />
                         )
                             :
                             this.state.pickerValue == 7 ? (
                                 <FlatList
                                     data={this.state.data}
-                                    keyExtractor={({ item, index }) => (index)}
+                                    keyExtractor={() => (Math.floor(Math.random() * 10000).toString())}
                                     renderItem={
                                         ({ item }) => (
                                             (item.month == 7 ? (
@@ -130,7 +130,7 @@ class Points extends Component {
                                     (
                                         <FlatList
                                             data={this.state.data}
-                                            keyExtractor={({ item, index }) => (index)}
+                                            keyExtractor={() => (Math.floor(Math.random() * 10000).toString())}
                                             renderItem={
                                                 ({ item }) => (
                                                     (item.month == 8 ? (
@@ -168,7 +168,7 @@ class Points extends Component {
                                     this.state.pickerValue == 9 ? (
                                         <FlatList
                                             data={this.state.data}
-                                            keyExtractor={({ item, index }) => (index)}
+                                            keyExtractor={() => (Math.floor(Math.random() * 10000).toString())}
                                             renderItem={
                                                 ({ item }) => (
                                                     (item.month == 9 ? (
@@ -206,7 +206,7 @@ class Points extends Component {
                                         this.state.pickerValue == 10 ? (
                                             <FlatList
                                                 data={this.state.data}
-                                                keyExtractor={({ item, index }) => (index)}
+                                                keyExtractor={() => (Math.floor(Math.random() * 10000).toString())}
                                                 renderItem={
                                                     ({ item }) => (
                                                         (item.month == 10 ? (
@@ -244,7 +244,7 @@ class Points extends Component {
                                             this.state.pickerValue == 11 ? (
                                                 <FlatList
                                                     data={this.state.data}
-                                                    keyExtractor={({ item, index }) => (index)}
+                                                    keyExtractor={() => (Math.floor(Math.random() * 10000).toString())}
                                                     renderItem={
                                                         ({ item }) => (
                                                             (item.month == 11 ? (
@@ -282,7 +282,7 @@ class Points extends Component {
                                                 this.state.pickerValue == 12 ? (
                                                     <FlatList
                                                         data={this.state.data}
-                                                        keyExtractor={({ item, index }) => (index)}
+                                                        keyExtractor={() => (Math.floor(Math.random() * 10000).toString())}
                                                         renderItem={
                                                             ({ item }) => (
                                                                 (item.month == 12 ? (
@@ -320,7 +320,7 @@ class Points extends Component {
                                                     this.state.pickerValue == 1 ? (
                                                         <FlatList
                                                             data={this.state.data}
-                                                            keyExtractor={({ item, index }) => (index)}
+                                                            keyExtractor={() => (Math.floor(Math.random() * 10000).toString())}
                                                             renderItem={
                                                                 ({ item }) => (
                                                                     (item.month == 1 ? (
@@ -358,7 +358,7 @@ class Points extends Component {
                                                         this.state.pickerValue == 2 ? (
                                                             <FlatList
                                                                 data={this.state.data}
-                                                                keyExtractor={({ item, index }) => (index)}
+                                                                keyExtractor={() => (Math.floor(Math.random() * 10000).toString())}
                                                                 renderItem={
                                                                     ({ item }) => (
                                                                         (item.month == 2 ? (
@@ -396,7 +396,7 @@ class Points extends Component {
                                                             this.state.pickerValue == 3 ? (
                                                                 <FlatList
                                                                     data={this.state.data}
-                                                                    keyExtractor={({ item, index }) => (index)}
+                                                                    keyExtractor={() => (Math.floor(Math.random() * 10000).toString())}
                                                                     renderItem={
                                                                         ({ item }) => (
                                                                             (item.month == 3 ? (
@@ -435,7 +435,7 @@ class Points extends Component {
                                                                     (
                                                                         <FlatList
                                                                             data={this.state.data}
-                                                                            keyExtractor={({ item, index }) => (index)}
+                                                                            keyExtractor={() => (Math.floor(Math.random() * 10000).toString())}
                                                                             renderItem={
                                                                                 ({ item }) => (
                                                                                     (item.month == 5 ? (
