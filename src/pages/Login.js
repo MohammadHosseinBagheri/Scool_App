@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
-import { View, Text, Dimensions } from 'react-native';
+import { View, Text, Dimensions ,AsyncStorage} from 'react-native';
 import { Form, Item, Input, Icon, Label, Button } from 'native-base';
 import { TextInput } from 'react-native-gesture-handler';
-import { createStackNavigator, createAppContainer, } from "react-navigation";
+
 import LottieView from 'lottie-react-native';
 import MyHeader from '../components/MyHeader';
 var screen = Dimensions.get('window')
 var jj = ""
+import { StackActions, NavigationActions } from 'react-navigation';
+
+
 class Login extends Component {
     constructor(props) {
         super(props);
@@ -21,7 +24,9 @@ class Login extends Component {
     componentWillMount() {
         this.fetches();
     }
+
     render() {
+       
         return (
             <View style={{ flex: 1, flexDirection: 'column', backgroundColor: '#455A64' }}>
                 <MyHeader
@@ -68,7 +73,7 @@ class Login extends Component {
         console.log(this.state.data);
 
     }
-    Login() {
+   async Login() {
         if (this.state.username == "") {
             this.setState({
                 userError: "فیلد نام کاربری نمیتواند خالی باشد !"
@@ -84,11 +89,14 @@ class Login extends Component {
             jj = this.state.data;
             let user = this.state.username;
             let pass = this.state.password;
-            jj.forEach(element => {
+            await jj.forEach(element => {
                 if (user == element.username && pass == element.password) {
-                    this.props.navigation.navigate('Home', {
+                    console.log(element)
+                    AsyncStorage.setItem('data',JSON.stringify(element))
+                    this.props.navigation.replace('Home', {
                         userData: { element }
                     })
+                    
                     return;
                 }
                 console.log('no body with this username')

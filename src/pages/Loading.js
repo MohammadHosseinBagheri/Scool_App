@@ -10,7 +10,7 @@ class Loading extends Component {
 componentWillMount(){
 
     setTimeout(()=>{
-        this.props.navigation.navigate('Login')
+        this.props.navigation.replace('Login')
     },2000)
 }
   render() {

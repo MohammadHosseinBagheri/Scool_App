@@ -10,91 +10,9 @@ import HelpEmail from "./HelpEmail";
 import Loading from "./Loading";
 import { Icon, Text, View,  } from "native-base";
 import {Image} from 'react-native';
-export const MyDrawer = createDrawerNavigator({
+import MyMenu from '../components/MyMenu';
 
-    Home: {
-        screen: Home,
-        navigationOptions: {
-            drawerLabel: () => (
-                <View style={{ flex: 1, flexDirection: 'column' }}>
-                    <View style={{ flex: 1, flexDirection: 'row-reverse', alignItems: 'center', marginTop: 10 }}>
-                        <Icon name={'home'} style={{ color: '#4DB6AC', marginLeft: 10, marginRight: 5, }} />
-                        <Text style={{
-                            fontSize: 16, fontFamily: 'IRANSansMobile',
-                            textAlign: 'right',
-                        }}>خانه </Text>
 
-                    </View>
-                    <View style={{ margin: 4, marginLeft: 20, marginRight: 20, borderColor: 'gray', borderWidth: 1, opacity: 0.7 }}></View>
-                </View>
-            ),
-        }
-    },
-    Exams: {
-        screen: Exams,
-        navigationOptions: {
-            drawerLabel: () => (
-                <View style={{ flex: 1, flexDirection: 'column' }}>
-                    <View style={{ flex: 1, flexDirection: 'row-reverse', alignItems: 'center', marginTop: 10 }}>
-                        <Icon name={'school'} style={{ color: '#4DB6AC', marginLeft: 10, marginRight: 5, }} />
-                        <Text style={{
-                            fontSize: 16, fontFamily: 'IRANSansMobile',
-                            textAlign: 'right',
-                        }}>امتحانات </Text>
-
-                    </View>
-                    <View style={{ margin: 4, marginLeft: 20, marginRight: 20, borderColor: 'gray', borderWidth: 1, opacity: 0.7 }}></View>
-                </View>
-            ),
-        }
-    },
-    Points: {
-        screen: Points,
-        navigationOptions: {
-            drawerLabel: () => (
-                <View style={{ flex: 1, flexDirection: 'column' }}>
-                    <View style={{ flex: 1, flexDirection: 'row-reverse', alignItems: 'center', marginTop: 10 }}>
-                        <Icon name={'paper'} style={{ color: '#4DB6AC', marginLeft: 10, marginRight: 5, }} />
-                        <Text style={{
-                            fontSize: 16, fontFamily: 'IRANSansMobile',
-                            textAlign: 'right',
-                        }}> نمرات و کارنامه</Text>
-
-                    </View>
-                    <View style={{ margin: 4, marginLeft: 20, marginRight: 20, borderColor: 'gray', borderWidth: 1, opacity: 0.7 }}></View>
-                </View>
-
-            ),
-        }
-    },
-    HelpEmail: {
-        screen: HelpEmail,
-        navigationOptions: {
-            drawerLabel: () => (
-                <View style={{ flex: 1, flexDirection: 'column' }}>
-                    <View style={{ flex: 1, flexDirection: 'row-reverse', alignItems: 'center', marginTop: 10 }}>
-                        <Icon name={'mail'} style={{ color: '#4DB6AC', marginLeft: 10, marginRight: 5, }} />
-                        <Text style={{
-                            fontSize: 16, fontFamily: 'IRANSansMobile',
-                            textAlign: 'right',
-                        }}> ایمیل و پشتیبانی</Text>
-
-                    </View>
-                    <View style={{ margin: 4, marginLeft: 20, marginRight: 20, borderColor: 'gray', borderWidth: 1, opacity: 0.7 }}></View>
-                </View>
-            ),
-        }
-    },
-    ShowCourses: {
-        screen: ShowCourses,
-        navigationOptions: {
-            drawerLabel: () => (
-                <LottieView source={require('../animation/book2.json')} style={{width:'100%',height:'100%',flexDirection:'column-reverse'}} autoPlay />
-            ),
-        }
-    }
-}
-)
 const Pages = createStackNavigator({
     Loading: {
         screen: Loading
@@ -102,10 +20,19 @@ const Pages = createStackNavigator({
     Login: {
         screen: Login
     },
-    MyDrawer: {
-        screen: MyDrawer,
+    Home:{
+        screen:Home
+    },
+    Exams:{
+        screen:Exams
+    },
+    Points:{
+        screen:Points
+    },
+    HelpEmail:{
+        screen:HelpEmail
+    },
 
-    }
 },
     {
         headerMode: 'none'
@@ -113,4 +40,117 @@ const Pages = createStackNavigator({
 
 )
 
-export default createAppContainer(Pages)
+const MyDrawer=createDrawerNavigator({
+    Main:{
+        screen:Pages
+    }
+},
+{
+    contentComponent:MyMenu
+})
+
+
+// export const MyDrawer = createDrawerNavigator({
+
+//     Home: {
+//         screen: Home,
+//         navigationOptions: {
+//             drawerLabel: () => (
+//                 <View style={{ flex: 1, flexDirection: 'column' }}>
+//                     <View style={{ flex: 1, flexDirection: 'row-reverse', alignItems: 'center', marginTop: 10 }}>
+//                         <Icon name={'home'} style={{ color: '#4DB6AC', marginLeft: 10, marginRight: 5, }} />
+//                         <Text style={{
+//                             fontSize: 16, fontFamily: 'IRANSansMobile',
+//                             textAlign: 'right',
+//                         }}>خانه </Text>
+
+//                     </View>
+//                     <View style={{ margin: 4, marginLeft: 20, marginRight: 20, borderColor: 'gray', borderWidth: 1, opacity: 0.7 }}></View>
+//                 </View>
+//             ),
+//         }
+//     },
+//     Exams: {
+//         screen: Exams,
+//         navigationOptions: {
+//             drawerLabel: () => (
+//                 <View style={{ flex: 1, flexDirection: 'column' }}>
+//                     <View style={{ flex: 1, flexDirection: 'row-reverse', alignItems: 'center', marginTop: 10 }}>
+//                         <Icon name={'school'} style={{ color: '#4DB6AC', marginLeft: 10, marginRight: 5, }} />
+//                         <Text style={{
+//                             fontSize: 16, fontFamily: 'IRANSansMobile',
+//                             textAlign: 'right',
+//                         }}>امتحانات </Text>
+
+//                     </View>
+//                     <View style={{ margin: 4, marginLeft: 20, marginRight: 20, borderColor: 'gray', borderWidth: 1, opacity: 0.7 }}></View>
+//                 </View>
+//             ),
+//         }
+//     },
+//     Points: {
+//         screen: Points,
+//         navigationOptions: {
+//             drawerLabel: () => (
+//                 <View style={{ flex: 1, flexDirection: 'column' }}>
+//                     <View style={{ flex: 1, flexDirection: 'row-reverse', alignItems: 'center', marginTop: 10 }}>
+//                         <Icon name={'paper'} style={{ color: '#4DB6AC', marginLeft: 10, marginRight: 5, }} />
+//                         <Text style={{
+//                             fontSize: 16, fontFamily: 'IRANSansMobile',
+//                             textAlign: 'right',
+//                         }}> نمرات و کارنامه</Text>
+
+//                     </View>
+//                     <View style={{ margin: 4, marginLeft: 20, marginRight: 20, borderColor: 'gray', borderWidth: 1, opacity: 0.7 }}></View>
+//                 </View>
+
+//             ),
+//         }
+//     },
+//     HelpEmail: {
+//         screen: HelpEmail,
+//         navigationOptions: {
+//             drawerLabel: () => (
+//                 <View style={{ flex: 1, flexDirection: 'column' }}>
+//                     <View style={{ flex: 1, flexDirection: 'row-reverse', alignItems: 'center', marginTop: 10 }}>
+//                         <Icon name={'mail'} style={{ color: '#4DB6AC', marginLeft: 10, marginRight: 5, }} />
+//                         <Text style={{
+//                             fontSize: 16, fontFamily: 'IRANSansMobile',
+//                             textAlign: 'right',
+//                         }}> ایمیل و پشتیبانی</Text>
+
+//                     </View>
+//                     <View style={{ margin: 4, marginLeft: 20, marginRight: 20, borderColor: 'gray', borderWidth: 1, opacity: 0.7 }}></View>
+//                 </View>
+//             ),
+//         }
+//     },
+//     ShowCourses: {
+//         screen: ShowCourses,
+//         navigationOptions: {
+//             drawerLabel: () => (
+//                 <LottieView source={require('../animation/book2.json')} style={{width:'100%',height:'100%',flexDirection:'column-reverse'}} autoPlay />
+//             ),
+//         }
+//     }
+// }
+// )
+// const Pages = createStackNavigator({
+//     Loading: {
+//         screen: Loading
+//     },
+//     Login: {
+//         screen: Login
+//     },
+//     MyDrawer: {
+//         screen: MyDrawer,
+
+//     }
+// },
+//     {
+//         headerMode: 'none'
+//     },
+
+// )
+
+export default createAppContainer(MyDrawer)

@@ -116,7 +116,8 @@ class Home extends Component {
             <View style={{ flex: 1, flexDirection: 'column', backgroundColor: '#455A64' }}>
                 <MyHeader
                     left={<Icon name={'menu'} style={{color:'white'}} onPress={()=>{
-                        this.props.navigation.openDrawer()
+                        this.props.navigation.toggleDrawer();
+                        console.log(this.props.navigation)
                     }} ></Icon>}
                     // left={
                     //     <Button transparent onPress={() => {
