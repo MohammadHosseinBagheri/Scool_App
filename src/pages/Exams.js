@@ -56,7 +56,7 @@ class Exams extends Component {
     async fetchExamsApi() {
         const property = this.props
         //console.log(property)
-        let response = await fetch('http://192.168.1.51:80/proj/api/api.php?method=GetExams');
+        let response = await fetch('http://amir7amiri.ir/amir7amiri/api.php?method=GetExams');
         let responseJson = await response.json();
         await console.log(responseJson)
         await responseJson.forEach(element => {

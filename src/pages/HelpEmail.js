@@ -5,7 +5,7 @@ import { FlatList } from 'react-native-gesture-handler';
 import LottieView from 'lottie-react-native';
 import MyHeader from '../components/MyHeader';
 class HelpEmail extends Component {
-    static navigationOptions=({navigation})=>(
+    static navigationOptions = ({ navigation }) => (
         this.props
     )
     constructor(props) {
@@ -25,19 +25,13 @@ class HelpEmail extends Component {
                         this.props.navigation.goBack()
                     }} />}
                     right={
-                        <Button transparent onPress={() => {
-                            this.props.navigation.openDrawer()
-                        }} >
-                            <LottieView style={{ width: 40 }} source={require('../animation/email.json')} autoPlay loop
-
-                            />
-                        </Button>}
+                        <LottieView style={{ width: 40 }} source={require('../animation/email.json')} autoPlay loop/>}
                     body={<Text style={{ fontFamily: 'IRANSansMobile', color: 'white', fontSize: 16 }} > پشتیبانی و ایمیل    </Text>}
                 />
                 {
                     this.state.Teachers.length == 0
                         ?
-                        (<LottieView style={{ flex: 1 }}  source={require('../animation/loading2.json')} autoPlay loop />)
+                        (<LottieView style={{ flex: 1 }} source={require('../animation/loading2.json')} autoPlay loop />)
                         :
                         (<FlatList data={this.state.Teachers}
                             renderItem={({ item, index }) => (
@@ -66,7 +60,7 @@ class HelpEmail extends Component {
         );
     }
     async fetchTecherEmail() {
-        let response = await fetch('http://192.168.1.51:80/proj/api/api.php?method=GetTeachers')
+        let response = await fetch('http://amir7amiri.ir/amir7amiri/api.php?method=GetTeachers')
         let responseJson = await response.json();
         await this.setState({
             Teachers: responseJson

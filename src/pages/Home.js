@@ -229,7 +229,7 @@ class Home extends Component {
         this.refs.modal.showModal()
     }
     async fetchData() {
-        let fetchh = await fetch('http://192.168.1.51:80/proj/api/api.php?method=GetStuCorses')
+        let fetchh = await fetch('http://amir7amiri.ir/amir7amiri/api.php?method=GetStuCorses')
         let response = await fetchh.json()
         //console.log(response)
         this.setState({

@@ -479,7 +479,7 @@ class Points extends Component {
         );
     }
     async fetchPoints() {
-        let response = await fetch('http://192.168.1.51:80/proj/api/api.php?method=GetStuCorses')
+        let response = await fetch('http://amir7amiri.ir/amir7amiri/api.php?method=GetStuCorses')
         let responseJson = await response.json();
         await console.log(responseJson)
         this.auth(responseJson)

@@ -52,6 +52,9 @@ class MyMenu extends Component {
             this.props.navigation.closeDrawer()
         })
     }
+    helpEmailRender(){
+        this.props.navigation.navigate('HelpEmail')
+    }
     render() {
         return (
             <View style={{ flex: 1, flexDirection: 'column' }}>
