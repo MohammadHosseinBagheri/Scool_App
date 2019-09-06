@@ -58,33 +58,23 @@ class MyModal extends Component {
                 position={'bottom'}
                 ref={'modal'}
                 backdrop={true}
-                >
-                <View style={{ flex: 1, flexDirection: 'column', backgroundColor: '#80CBC4' }}>
-                    <View style={{ flex: 1, justifyContent: 'space-around', flexDirection: 'row', margin: 7 }}>
-                        <Button style={{ elevation: 10, backgroundColor: '#FF7043', borderTopRightRadius: 15, borderBottomLeftRadius: 15 }} onPress={this.showPoint.bind(this)} >
-                            <Text style={{ padding: 10, fontFamily: 'IRANSansMobile', fontSize: 16 }}>
-                                نمرات
+            >
+                <View style={{ flex: 1, flexDirection: 'row', backgroundColor: '#80CBC4', justifyContent: 'space-around', alignItems: 'center' }}>
+                    <Button style={{ elevation: 10, backgroundColor: '#FF7043', borderTopRightRadius: 15, borderBottomLeftRadius: 15 }} onPress={this.showPoint.bind(this)} >
+                        <Text style={{ padding: 10, fontFamily: 'IRANSansMobile', fontSize: 16 }}>
+                            نمرات
                             </Text>
-                        </Button>
-                        <Button style={{ elevation: 10, backgroundColor: '#FF7043', borderTopRightRadius: 15, borderBottomLeftRadius: 15 }} onPress={this.Exams.bind(this)} >
-                            <Text style={{ padding: 10, fontFamily: 'IRANSansMobile', fontSize: 16 }}>
-                                برنامه امتحانات
+                    </Button>
+                    <Button style={{ elevation: 10, borderTopLeftRadius: 15, borderBottomRightRadius: 15, backgroundColor: '#FF7043' }} onPress={this.help.bind(this)}>
+                        <Text style={{ padding: 10, fontFamily: 'IRANSansMobile', fontSize: 16 }}>
+                            پشتیبانی و ایمیل دبیر ها
                             </Text>
-                        </Button>
-
-                    </View>
-                    <View style={{ flex: 1, justifyContent: 'space-around', flexDirection: 'row', margin: 7 }}>
-                        <Button style={{ elevation: 10, backgroundColor: '#FF7043', borderTopLeftRadius: 15, borderBottomRightRadius: 15 }}>
-                            <Text style={{ padding: 10, fontFamily: 'IRANSansMobile', fontSize: 16 }}>
-                                اطلاعیه ها
+                    </Button>
+                    <Button style={{ elevation: 10, backgroundColor: '#FF7043', borderTopRightRadius: 15, borderBottomLeftRadius: 15 }} onPress={this.Exams.bind(this)} >
+                        <Text style={{ padding: 10, fontFamily: 'IRANSansMobile', fontSize: 16 }}>
+                            برنامه امتحانات
                             </Text>
-                        </Button>
-                        <Button style={{ elevation: 10, borderTopLeftRadius: 15, borderBottomRightRadius: 15, backgroundColor: '#FF7043' }} onPress={this.help.bind(this)}>
-                            <Text style={{ padding: 10, fontFamily: 'IRANSansMobile', fontSize: 16 }}>
-                                پشتیبانی و ایمیل دبیر ها
-                            </Text>
-                        </Button>
-                    </View>
+                    </Button>
                 </View>
             </Modal>
         )
@@ -115,7 +105,7 @@ class Home extends Component {
         return (
             <View style={{ flex: 1, flexDirection: 'column', backgroundColor: '#455A64' }}>
                 <MyHeader
-                    left={<Icon name={'menu'} style={{color:'white'}} onPress={()=>{
+                    left={<Icon name={'menu'} style={{ color: 'white' }} onPress={() => {
                         this.props.navigation.toggleDrawer();
                         console.log(this.props.navigation)
                     }} ></Icon>}
@@ -132,7 +122,7 @@ class Home extends Component {
                     right={<LottieView style={{ width: 60, height: 60 }} source={require('../animation/user.json')} autoPlay />} />
                 <View style={{ flex: 1 }}>
                     <Card>
-                        <CardItem header bordered style={{backgroundColor:'#E0E0E0'}} >
+                        <CardItem header bordered style={{ backgroundColor: '#E0E0E0' }} >
                             <Left>
                                 <Icon style={styles.thumnail} name={'ios-contact'} />
                             </Left>

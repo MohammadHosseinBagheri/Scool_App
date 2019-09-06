@@ -13,7 +13,7 @@ class MyMenu extends Component {
         };
     }
     homeRender() {
-        
+
         AsyncStorage.getItem('data', (error, data) => {
             if (error) console.log(error)
             userData = JSON.parse(data)
@@ -36,9 +36,9 @@ class MyMenu extends Component {
             )
             this.props.navigation.closeDrawer()
         })
-        
+
     }
-    pointsRender(){
+    pointsRender() {
         AsyncStorage.getItem('data', (error, data) => {
             if (error) console.log(error)
             userData = JSON.parse(data)
@@ -52,18 +52,23 @@ class MyMenu extends Component {
             this.props.navigation.closeDrawer()
         })
     }
-    helpEmailRender(){
+    helpEmailRender() {
         this.props.navigation.navigate('HelpEmail')
     }
     render() {
         return (
             <View style={{ flex: 1, flexDirection: 'column' }}>
-                <Button style={{ flex: 1, flexDirection: 'row', justifyContent: 'flex-end', alignItems: 'center' }} onPress={this.homeRender.bind(this)}>
+                <View style={{ flex: 0.17,justifyContent:'flex-end',flexDirection: 'row',alignItems:'center', margin:7 }}>
+                    <Icon name={'close'} onPress={() => {
+                        this.props.navigation.closeDrawer()
+                    }} />
+                </View>
+                <Item style={{ flex: 1, flexDirection: 'row', justifyContent: 'flex-end', alignItems: 'center' }} onPress={this.homeRender.bind(this)}>
                     <Text style={{ textAlign: 'center', fontFamily: 'IRANSansMobile', marginRight: 5, fontSize: 14 }}  >
                         خانه
                         </Text>
                     <Icon name={'home'} />
-                </Button>
+                </Item>
 
                 <Item style={{ flex: 1, flexDirection: 'row', justifyContent: 'flex-end', alignItems: 'center' }} onPress={this.examRender.bind(this)}  >
                     <Text style={{ textAlign: 'center', fontFamily: 'IRANSansMobile', marginRight: 5, fontSize: 14 }} >

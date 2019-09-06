@@ -37,7 +37,7 @@ class HelpEmail extends Component {
                             renderItem={({ item, index }) => (
                                 <Card>
                                     <CardItem header bordered style={{ backgroundColor: '#FFF59D' }} >
-                                        <Thumbnail source={{ uri: 'https://pickaface.net/assets/images/slides/slide2.png' }} />
+                                        <Icon name={'person'} />
                                         <View style={{ flex: 1 }}>
                                             <Text style={[styles.cardBodyText, { fontFamily: 'IRANSansMobile_Light', elevation: 5 }]}>
                                                 آقای {item.first_name} {item.last_name}
