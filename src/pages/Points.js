@@ -20,7 +20,7 @@ class Points extends Component {
     render() {
         return (
             <View style={{ flex: 1, backgroundColor: '#455A64', flexDirection: 'column' }} >
-                <StatusBar hidden/>
+                <StatusBar hidden />
                 <MyHeader
                     left={<Icon name={'arrow-back'} style={{ color: 'white' }} onPress={() => {
                         this.props.navigation.goBack()
@@ -62,7 +62,7 @@ class Points extends Component {
                                 data={this.state.data}
 
                                 renderItem={
-                                    ({ item }) => (
+                                    ({ item, index }) => (
                                         <View>
                                             <Card>
 
@@ -75,11 +75,13 @@ class Points extends Component {
                                                 </CardItem>
 
                                                 <CardItem cardBody style={{ flex: 1 }}>
+                                                    <View style={[{ flex: 1, flexDirection: 'column', justifyContent: 'center', }, (index % 2 == 0) ? { backgroundColor: '#FF7043' } : { backgroundColor: '#26A69A' }]} >
                                                         <Text style={styles.cardBodyText}>  نمره :  {item.grade} </Text>
                                                         <Text style={styles.cardBodyText}>  سال :  {item.year} </Text>
                                                         <Text style={styles.cardBodyText}>  ماه :  {item.month} </Text>
                                                         <Text style={styles.cardBodyText}>  روز :  {item.day} </Text>
                                                         <Text style={styles.cardBodyText}>  نام ارزیابی :  {item.exam_name} </Text>
+                                                    </View>
                                                 </CardItem>
                                             </Card>
                                         </View>
@@ -94,7 +96,7 @@ class Points extends Component {
                                     data={this.state.data}
                                     keyExtractor={() => (Math.floor(Math.random() * 10000).toString())}
                                     renderItem={
-                                        ({ item }) => (
+                                        ({ item, index }) => (
                                             (item.month == 7 ? (
                                                 <View>
                                                     <Card>
@@ -108,11 +110,13 @@ class Points extends Component {
                                                         </CardItem>
 
                                                         <CardItem cardBody style={{ flex: 1 }}>
+                                                            <View style={[{ flex: 1, flexDirection: 'column', justifyContent: 'center', }, (index % 2 == 0) ? { backgroundColor: '#FF7043' } : { backgroundColor: '#26A69A' }]} >
                                                                 <Text style={styles.cardBodyText}>  نمره :  {item.grade} </Text>
                                                                 <Text style={styles.cardBodyText}>  سال :  {item.year} </Text>
                                                                 <Text style={styles.cardBodyText}>  ماه :  {item.month} </Text>
                                                                 <Text style={styles.cardBodyText}>  روز :  {item.day} </Text>
                                                                 <Text style={styles.cardBodyText}>  نام ارزیابی :  {item.exam_name} </Text>
+                                                            </View>
                                                         </CardItem>
                                                     </Card>
                                                 </View>
@@ -131,7 +135,7 @@ class Points extends Component {
                                             data={this.state.data}
                                             keyExtractor={() => (Math.floor(Math.random() * 10000).toString())}
                                             renderItem={
-                                                ({ item }) => (
+                                                ({ item, index }) => (
                                                     (item.month == 8 ? (
                                                         <View>
                                                             <Card>
@@ -145,11 +149,13 @@ class Points extends Component {
                                                                 </CardItem>
 
                                                                 <CardItem cardBody style={{ flex: 1 }}>
+                                                                    <View style={[{ flex: 1, flexDirection: 'column', justifyContent: 'center', }, (index % 2 == 0) ? { backgroundColor: '#FF7043' } : { backgroundColor: '#26A69A' }]} >
                                                                         <Text style={styles.cardBodyText}>  نمره :  {item.grade} </Text>
                                                                         <Text style={styles.cardBodyText}>  سال :  {item.year} </Text>
                                                                         <Text style={styles.cardBodyText}>  ماه :  {item.month} </Text>
                                                                         <Text style={styles.cardBodyText}>  روز :  {item.day} </Text>
                                                                         <Text style={styles.cardBodyText}>  نام ارزیابی :  {item.exam_name} </Text>
+                                                                    </View>
                                                                 </CardItem>
                                                             </Card>
                                                         </View>
@@ -167,7 +173,7 @@ class Points extends Component {
                                             data={this.state.data}
                                             keyExtractor={() => (Math.floor(Math.random() * 10000).toString())}
                                             renderItem={
-                                                ({ item }) => (
+                                                ({ item, index }) => (
                                                     (item.month == 9 ? (
                                                         <View>
                                                             <Card>
@@ -181,11 +187,13 @@ class Points extends Component {
                                                                 </CardItem>
 
                                                                 <CardItem cardBody style={{ flex: 1 }}>
+                                                                    <View style={[{ flex: 1, flexDirection: 'column', justifyContent: 'center', }, (index % 2 == 0) ? { backgroundColor: '#FF7043' } : { backgroundColor: '#26A69A' }]} >
                                                                         <Text style={styles.cardBodyText}>  نمره :  {item.grade} </Text>
                                                                         <Text style={styles.cardBodyText}>  سال :  {item.year} </Text>
                                                                         <Text style={styles.cardBodyText}>  ماه :  {item.month} </Text>
                                                                         <Text style={styles.cardBodyText}>  روز :  {item.day} </Text>
                                                                         <Text style={styles.cardBodyText}>  نام ارزیابی :  {item.exam_name} </Text>
+                                                                    </View>
                                                                 </CardItem>
                                                             </Card>
                                                         </View>
@@ -203,7 +211,7 @@ class Points extends Component {
                                                 data={this.state.data}
                                                 keyExtractor={() => (Math.floor(Math.random() * 10000).toString())}
                                                 renderItem={
-                                                    ({ item }) => (
+                                                    ({ item, index }) => (
                                                         (item.month == 10 ? (
                                                             <View>
                                                                 <Card>
@@ -217,11 +225,13 @@ class Points extends Component {
                                                                     </CardItem>
 
                                                                     <CardItem cardBody style={{ flex: 1 }}>
+                                                                        <View style={[{ flex: 1, flexDirection: 'column', justifyContent: 'center', }, (index % 2 == 0) ? { backgroundColor: '#FF7043' } : { backgroundColor: '#26A69A' }]} >
                                                                             <Text style={styles.cardBodyText}>  نمره :  {item.grade} </Text>
                                                                             <Text style={styles.cardBodyText}>  سال :  {item.year} </Text>
                                                                             <Text style={styles.cardBodyText}>  ماه :  {item.month} </Text>
                                                                             <Text style={styles.cardBodyText}>  روز :  {item.day} </Text>
                                                                             <Text style={styles.cardBodyText}>  نام ارزیابی :  {item.exam_name} </Text>
+                                                                        </View>
                                                                     </CardItem>
                                                                 </Card>
                                                             </View>
@@ -239,7 +249,7 @@ class Points extends Component {
                                                     data={this.state.data}
                                                     keyExtractor={() => (Math.floor(Math.random() * 10000).toString())}
                                                     renderItem={
-                                                        ({ item }) => (
+                                                        ({ item, index }) => (
                                                             (item.month == 11 ? (
                                                                 <View>
                                                                     <Card>
@@ -253,11 +263,13 @@ class Points extends Component {
                                                                         </CardItem>
 
                                                                         <CardItem cardBody style={{ flex: 1 }}>
+                                                                            <View style={[{ flex: 1, flexDirection: 'column', justifyContent: 'center', }, (index % 2 == 0) ? { backgroundColor: '#FF7043' } : { backgroundColor: '#26A69A' }]} >
                                                                                 <Text style={styles.cardBodyText}>  نمره :  {item.grade} </Text>
                                                                                 <Text style={styles.cardBodyText}>  سال :  {item.year} </Text>
                                                                                 <Text style={styles.cardBodyText}>  ماه :  {item.month} </Text>
                                                                                 <Text style={styles.cardBodyText}>  روز :  {item.day} </Text>
                                                                                 <Text style={styles.cardBodyText}>  نام ارزیابی :  {item.exam_name} </Text>
+                                                                            </View>
                                                                         </CardItem>
                                                                     </Card>
                                                                 </View>
@@ -275,7 +287,7 @@ class Points extends Component {
                                                         data={this.state.data}
                                                         keyExtractor={() => (Math.floor(Math.random() * 10000).toString())}
                                                         renderItem={
-                                                            ({ item }) => (
+                                                            ({ item, index }) => (
                                                                 (item.month == 12 ? (
                                                                     <View>
                                                                         <Card>
@@ -289,11 +301,13 @@ class Points extends Component {
                                                                             </CardItem>
 
                                                                             <CardItem cardBody style={{ flex: 1 }}>
+                                                                                <View style={[{ flex: 1, flexDirection: 'column', justifyContent: 'center', }, (index % 2 == 0) ? { backgroundColor: '#FF7043' } : { backgroundColor: '#26A69A' }]} >
                                                                                     <Text style={styles.cardBodyText}>  نمره :  {item.grade} </Text>
                                                                                     <Text style={styles.cardBodyText}>  سال :  {item.year} </Text>
                                                                                     <Text style={styles.cardBodyText}>  ماه :  {item.month} </Text>
                                                                                     <Text style={styles.cardBodyText}>  روز :  {item.day} </Text>
                                                                                     <Text style={styles.cardBodyText}>  نام ارزیابی :  {item.exam_name} </Text>
+                                                                                </View>
                                                                             </CardItem>
                                                                         </Card>
                                                                     </View>
@@ -311,7 +325,7 @@ class Points extends Component {
                                                             data={this.state.data}
                                                             keyExtractor={() => (Math.floor(Math.random() * 10000).toString())}
                                                             renderItem={
-                                                                ({ item }) => (
+                                                                ({ item, index }) => (
                                                                     (item.month == 1 ? (
                                                                         <View>
                                                                             <Card>
@@ -325,11 +339,13 @@ class Points extends Component {
                                                                                 </CardItem>
 
                                                                                 <CardItem cardBody style={{ flex: 1 }}>
+                                                                                    <View style={[{ flex: 1, flexDirection: 'column', justifyContent: 'center', }, (index % 2 == 0) ? { backgroundColor: '#FF7043' } : { backgroundColor: '#26A69A' }]} >
                                                                                         <Text style={styles.cardBodyText}>  نمره :  {item.grade} </Text>
                                                                                         <Text style={styles.cardBodyText}>  سال :  {item.year} </Text>
                                                                                         <Text style={styles.cardBodyText}>  ماه :  {item.month} </Text>
                                                                                         <Text style={styles.cardBodyText}>  روز :  {item.day} </Text>
                                                                                         <Text style={styles.cardBodyText}>  نام ارزیابی :  {item.exam_name} </Text>
+                                                                                    </View>
                                                                                 </CardItem>
                                                                             </Card>
                                                                         </View>
@@ -347,7 +363,7 @@ class Points extends Component {
                                                                 data={this.state.data}
                                                                 keyExtractor={() => (Math.floor(Math.random() * 10000).toString())}
                                                                 renderItem={
-                                                                    ({ item }) => (
+                                                                    ({ item, index }) => (
                                                                         (item.month == 2 ? (
                                                                             <View>
                                                                                 <Card>
@@ -361,11 +377,13 @@ class Points extends Component {
                                                                                     </CardItem>
 
                                                                                     <CardItem cardBody style={{ flex: 1 }}>
+                                                                                        <View style={[{ flex: 1, flexDirection: 'column', justifyContent: 'center', }, (index % 2 == 0) ? { backgroundColor: '#FF7043' } : { backgroundColor: '#26A69A' }]} >
                                                                                             <Text style={styles.cardBodyText}>  نمره :  {item.grade} </Text>
                                                                                             <Text style={styles.cardBodyText}>  سال :  {item.year} </Text>
                                                                                             <Text style={styles.cardBodyText}>  ماه :  {item.month} </Text>
                                                                                             <Text style={styles.cardBodyText}>  روز :  {item.day} </Text>
                                                                                             <Text style={styles.cardBodyText}>  نام ارزیابی :  {item.exam_name} </Text>
+                                                                                        </View>
                                                                                     </CardItem>
                                                                                 </Card>
                                                                             </View>
@@ -383,7 +401,7 @@ class Points extends Component {
                                                                     data={this.state.data}
                                                                     keyExtractor={() => (Math.floor(Math.random() * 10000).toString())}
                                                                     renderItem={
-                                                                        ({ item }) => (
+                                                                        ({ item, index }) => (
                                                                             (item.month == 3 ? (
                                                                                 <View>
                                                                                     <Card>
@@ -397,11 +415,13 @@ class Points extends Component {
                                                                                         </CardItem>
 
                                                                                         <CardItem cardBody style={{ flex: 1 }}>
+                                                                                            <View style={[{ flex: 1, flexDirection: 'column', justifyContent: 'center', }, (index % 2 == 0) ? { backgroundColor: '#FF7043' } : { backgroundColor: '#26A69A' }]} >
                                                                                                 <Text style={styles.cardBodyText}>  نمره :  {item.grade} </Text>
                                                                                                 <Text style={styles.cardBodyText}>  سال :  {item.year} </Text>
                                                                                                 <Text style={styles.cardBodyText}>  ماه :  {item.month} </Text>
                                                                                                 <Text style={styles.cardBodyText}>  روز :  {item.day} </Text>
-                                                                                                <Text style={styles.cardBodyText}>  نام ارزیابی :  {item.exam_name} </Text>>
+                                                                                                <Text style={styles.cardBodyText}>  نام ارزیابی :  {item.exam_name} </Text>
+                                                                                            </View>
                                                                                         </CardItem>
                                                                                     </Card>
                                                                                 </View>
@@ -420,7 +440,7 @@ class Points extends Component {
                                                                             data={this.state.data}
                                                                             keyExtractor={() => (Math.floor(Math.random() * 10000).toString())}
                                                                             renderItem={
-                                                                                ({ item }) => (
+                                                                                ({ item, index }) => (
                                                                                     (item.month == 5 ? (
                                                                                         <View>
                                                                                             <Card>
@@ -434,11 +454,13 @@ class Points extends Component {
                                                                                                 </CardItem>
 
                                                                                                 <CardItem cardBody style={{ flex: 1 }}>
+                                                                                                    <View style={[{ flex: 1, flexDirection: 'column', justifyContent: 'center', }, (index % 2 == 0) ? { backgroundColor: '#FF7043' } : { backgroundColor: '#26A69A' }]} >
                                                                                                         <Text style={styles.cardBodyText}>  نمره :  {item.grade} </Text>
                                                                                                         <Text style={styles.cardBodyText}>  سال :  {item.year} </Text>
                                                                                                         <Text style={styles.cardBodyText}>  ماه :  {item.month} </Text>
                                                                                                         <Text style={styles.cardBodyText}>  روز :  {item.day} </Text>
                                                                                                         <Text style={styles.cardBodyText}>  نام ارزیابی :  {item.exam_name} </Text>
+                                                                                                    </View>
                                                                                                 </CardItem>
                                                                                             </Card>
                                                                                         </View>
