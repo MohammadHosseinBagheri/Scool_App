@@ -75,13 +75,11 @@ class Points extends Component {
                                                 </CardItem>
 
                                                 <CardItem cardBody style={{ flex: 1 }}>
-                                                    <LinearGradient colors={['#009688', '#B3E5FC', '#009688']} style={{ flex: 1, flexDirection: 'column', justifyContent: 'center', }} >
                                                         <Text style={styles.cardBodyText}>  نمره :  {item.grade} </Text>
                                                         <Text style={styles.cardBodyText}>  سال :  {item.year} </Text>
                                                         <Text style={styles.cardBodyText}>  ماه :  {item.month} </Text>
                                                         <Text style={styles.cardBodyText}>  روز :  {item.day} </Text>
                                                         <Text style={styles.cardBodyText}>  نام ارزیابی :  {item.exam_name} </Text>
-                                                    </LinearGradient>
                                                 </CardItem>
                                             </Card>
                                         </View>
@@ -110,13 +108,11 @@ class Points extends Component {
                                                         </CardItem>
 
                                                         <CardItem cardBody style={{ flex: 1 }}>
-                                                            <LinearGradient colors={['#009688', '#B3E5FC', '#009688']} style={{ flex: 1, flexDirection: 'column', justifyContent: 'center', }} >
                                                                 <Text style={styles.cardBodyText}>  نمره :  {item.grade} </Text>
                                                                 <Text style={styles.cardBodyText}>  سال :  {item.year} </Text>
                                                                 <Text style={styles.cardBodyText}>  ماه :  {item.month} </Text>
                                                                 <Text style={styles.cardBodyText}>  روز :  {item.day} </Text>
                                                                 <Text style={styles.cardBodyText}>  نام ارزیابی :  {item.exam_name} </Text>
-                                                            </LinearGradient>
                                                         </CardItem>
                                                     </Card>
                                                 </View>
@@ -149,13 +145,11 @@ class Points extends Component {
                                                                 </CardItem>
 
                                                                 <CardItem cardBody style={{ flex: 1 }}>
-                                                                    <LinearGradient colors={['#009688', '#B3E5FC', '#009688']} style={{ flex: 1, flexDirection: 'column', justifyContent: 'center', }} >
                                                                         <Text style={styles.cardBodyText}>  نمره :  {item.grade} </Text>
                                                                         <Text style={styles.cardBodyText}>  سال :  {item.year} </Text>
                                                                         <Text style={styles.cardBodyText}>  ماه :  {item.month} </Text>
                                                                         <Text style={styles.cardBodyText}>  روز :  {item.day} </Text>
                                                                         <Text style={styles.cardBodyText}>  نام ارزیابی :  {item.exam_name} </Text>
-                                                                    </LinearGradient>
                                                                 </CardItem>
                                                             </Card>
                                                         </View>
@@ -187,13 +181,11 @@ class Points extends Component {
                                                                 </CardItem>
 
                                                                 <CardItem cardBody style={{ flex: 1 }}>
-                                                                    <LinearGradient colors={['#009688', '#B3E5FC', '#009688']} style={{ flex: 1, flexDirection: 'column', justifyContent: 'center', }} >
                                                                         <Text style={styles.cardBodyText}>  نمره :  {item.grade} </Text>
                                                                         <Text style={styles.cardBodyText}>  سال :  {item.year} </Text>
                                                                         <Text style={styles.cardBodyText}>  ماه :  {item.month} </Text>
                                                                         <Text style={styles.cardBodyText}>  روز :  {item.day} </Text>
                                                                         <Text style={styles.cardBodyText}>  نام ارزیابی :  {item.exam_name} </Text>
-                                                                    </LinearGradient>
                                                                 </CardItem>
                                                             </Card>
                                                         </View>
@@ -225,13 +217,11 @@ class Points extends Component {
                                                                     </CardItem>
 
                                                                     <CardItem cardBody style={{ flex: 1 }}>
-                                                                        <LinearGradient colors={['#009688', '#B3E5FC', '#009688']} style={{ flex: 1, flexDirection: 'column', justifyContent: 'center', }} >
                                                                             <Text style={styles.cardBodyText}>  نمره :  {item.grade} </Text>
                                                                             <Text style={styles.cardBodyText}>  سال :  {item.year} </Text>
                                                                             <Text style={styles.cardBodyText}>  ماه :  {item.month} </Text>
                                                                             <Text style={styles.cardBodyText}>  روز :  {item.day} </Text>
                                                                             <Text style={styles.cardBodyText}>  نام ارزیابی :  {item.exam_name} </Text>
-                                                                        </LinearGradient>
                                                                     </CardItem>
                                                                 </Card>
                                                             </View>
@@ -263,13 +253,11 @@ class Points extends Component {
                                                                         </CardItem>
 
                                                                         <CardItem cardBody style={{ flex: 1 }}>
-                                                                            <LinearGradient colors={['#009688', '#B3E5FC', '#009688']} style={{ flex: 1, flexDirection: 'column', justifyContent: 'center', }} >
                                                                                 <Text style={styles.cardBodyText}>  نمره :  {item.grade} </Text>
                                                                                 <Text style={styles.cardBodyText}>  سال :  {item.year} </Text>
                                                                                 <Text style={styles.cardBodyText}>  ماه :  {item.month} </Text>
                                                                                 <Text style={styles.cardBodyText}>  روز :  {item.day} </Text>
                                                                                 <Text style={styles.cardBodyText}>  نام ارزیابی :  {item.exam_name} </Text>
-                                                                            </LinearGradient>
                                                                         </CardItem>
                                                                     </Card>
                                                                 </View>
@@ -301,13 +289,11 @@ class Points extends Component {
                                                                             </CardItem>
 
                                                                             <CardItem cardBody style={{ flex: 1 }}>
-                                                                                <LinearGradient colors={['#009688', '#B3E5FC', '#009688']} style={{ flex: 1, flexDirection: 'column', justifyContent: 'center', }} >
                                                                                     <Text style={styles.cardBodyText}>  نمره :  {item.grade} </Text>
                                                                                     <Text style={styles.cardBodyText}>  سال :  {item.year} </Text>
                                                                                     <Text style={styles.cardBodyText}>  ماه :  {item.month} </Text>
                                                                                     <Text style={styles.cardBodyText}>  روز :  {item.day} </Text>
                                                                                     <Text style={styles.cardBodyText}>  نام ارزیابی :  {item.exam_name} </Text>
-                                                                                </LinearGradient>
                                                                             </CardItem>
                                                                         </Card>
                                                                     </View>
@@ -339,13 +325,11 @@ class Points extends Component {
                                                                                 </CardItem>
 
                                                                                 <CardItem cardBody style={{ flex: 1 }}>
-                                                                                    <LinearGradient colors={['#009688', '#B3E5FC', '#009688']} style={{ flex: 1, flexDirection: 'column', justifyContent: 'center', }} >
                                                                                         <Text style={styles.cardBodyText}>  نمره :  {item.grade} </Text>
                                                                                         <Text style={styles.cardBodyText}>  سال :  {item.year} </Text>
                                                                                         <Text style={styles.cardBodyText}>  ماه :  {item.month} </Text>
                                                                                         <Text style={styles.cardBodyText}>  روز :  {item.day} </Text>
                                                                                         <Text style={styles.cardBodyText}>  نام ارزیابی :  {item.exam_name} </Text>
-                                                                                    </LinearGradient>
                                                                                 </CardItem>
                                                                             </Card>
                                                                         </View>
@@ -377,13 +361,11 @@ class Points extends Component {
                                                                                     </CardItem>
 
                                                                                     <CardItem cardBody style={{ flex: 1 }}>
-                                                                                        <LinearGradient colors={['#009688', '#B3E5FC', '#009688']} style={{ flex: 1, flexDirection: 'column', justifyContent: 'center', }} >
                                                                                             <Text style={styles.cardBodyText}>  نمره :  {item.grade} </Text>
                                                                                             <Text style={styles.cardBodyText}>  سال :  {item.year} </Text>
                                                                                             <Text style={styles.cardBodyText}>  ماه :  {item.month} </Text>
                                                                                             <Text style={styles.cardBodyText}>  روز :  {item.day} </Text>
                                                                                             <Text style={styles.cardBodyText}>  نام ارزیابی :  {item.exam_name} </Text>
-                                                                                        </LinearGradient>
                                                                                     </CardItem>
                                                                                 </Card>
                                                                             </View>
@@ -415,13 +397,11 @@ class Points extends Component {
                                                                                         </CardItem>
 
                                                                                         <CardItem cardBody style={{ flex: 1 }}>
-                                                                                            <LinearGradient colors={['#009688', '#B3E5FC', '#009688']} style={{ flex: 1, flexDirection: 'column', justifyContent: 'center', }} >
                                                                                                 <Text style={styles.cardBodyText}>  نمره :  {item.grade} </Text>
                                                                                                 <Text style={styles.cardBodyText}>  سال :  {item.year} </Text>
                                                                                                 <Text style={styles.cardBodyText}>  ماه :  {item.month} </Text>
                                                                                                 <Text style={styles.cardBodyText}>  روز :  {item.day} </Text>
-                                                                                                <Text style={styles.cardBodyText}>  نام ارزیابی :  {item.exam_name} </Text>
-                                                                                            </LinearGradient>
+                                                                                                <Text style={styles.cardBodyText}>  نام ارزیابی :  {item.exam_name} </Text>>
                                                                                         </CardItem>
                                                                                     </Card>
                                                                                 </View>
@@ -454,13 +434,11 @@ class Points extends Component {
                                                                                                 </CardItem>
 
                                                                                                 <CardItem cardBody style={{ flex: 1 }}>
-                                                                                                    <LinearGradient colors={['#009688', '#B3E5FC', '#009688']} style={{ flex: 1, flexDirection: 'column', justifyContent: 'center', }} >
                                                                                                         <Text style={styles.cardBodyText}>  نمره :  {item.grade} </Text>
                                                                                                         <Text style={styles.cardBodyText}>  سال :  {item.year} </Text>
                                                                                                         <Text style={styles.cardBodyText}>  ماه :  {item.month} </Text>
                                                                                                         <Text style={styles.cardBodyText}>  روز :  {item.day} </Text>
                                                                                                         <Text style={styles.cardBodyText}>  نام ارزیابی :  {item.exam_name} </Text>
-                                                                                                    </LinearGradient>
                                                                                                 </CardItem>
                                                                                             </Card>
                                                                                         </View>
