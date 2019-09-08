@@ -63,7 +63,7 @@ class Login extends Component {
         );
     }
     async fetches() {
-        let res = await fetch('http://192.168.1.51:80/proj/api/api.php?method=GetStudents');
+        let res = await fetch('http://amir7amiri.ir/amir7amiri/api.php?method=GetStudents');
         let json = await res.json();
         jj = json;
         console.log(json);
