@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, StatusBar } from 'react-native';
 import { FlatList } from 'react-native-gesture-handler';
 import { Card, CardItem, Icon, Picker } from 'native-base';
 import LinearGradient from 'react-native-linear-gradient';
@@ -20,6 +20,7 @@ class Points extends Component {
     render() {
         return (
             <View style={{ flex: 1, backgroundColor: '#455A64', flexDirection: 'column' }} >
+                <StatusBar hidden/>
                 <MyHeader
                     left={<Icon name={'arrow-back'} style={{ color: 'white' }} onPress={() => {
                         this.props.navigation.goBack()

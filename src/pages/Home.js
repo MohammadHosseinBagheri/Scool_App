@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, Dimensions } from 'react-native';
+import { View, Text, StyleSheet, Dimensions,StatusBar } from 'react-native';
 import MyHeader from '../components/MyHeader';
 import { Icon, Card, CardItem, Right, Thumbnail, Body, Left, Button, Spinner, ScrollView } from 'native-base';
 import Modal from 'react-native-modalbox';
@@ -104,6 +104,7 @@ class Home extends Component {
         let username = this.props.navigation.state.params.userData.element.first_name + " " + this.props.navigation.state.params.userData.element.last_name;
         return (
             <View style={{ flex: 1, flexDirection: 'column', backgroundColor: '#455A64' }}>
+                <StatusBar hidden/>
                 <MyHeader
                     left={<Icon name={'menu'} style={{ color: 'white' }} onPress={() => {
                         this.props.navigation.toggleDrawer();

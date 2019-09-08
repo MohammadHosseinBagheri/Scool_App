@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text,StatusBar } from 'react-native';
 import { FlatList } from 'react-native-gesture-handler';
 import MyHeader from '../components/MyHeader';
 import { Icon } from 'native-base';
@@ -20,6 +20,7 @@ class Exams extends Component {
 
         return (
             <View style={{ flex: 1, backgroundColor: '#455A64' }} >
+                <StatusBar hidden/>
                 <MyHeader
                     left={<Icon name={'arrow-back'} style={{ color: 'white' }} onPress={() => {
                         this.props.navigation.goBack()

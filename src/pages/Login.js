@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, Dimensions ,AsyncStorage} from 'react-native';
+import { View, Text, Dimensions ,AsyncStorage,StatusBar} from 'react-native';
 import { Form, Item, Input, Icon, Label, Button } from 'native-base';
 import { TextInput } from 'react-native-gesture-handler';
 
@@ -29,6 +29,7 @@ class Login extends Component {
        
         return (
             <View style={{ flex: 1, flexDirection: 'column', backgroundColor: '#455A64' }}>
+                <StatusBar hidden/>
                 <MyHeader
                     body={<Text style={{ fontFamily: 'IRANSansMobile_Light', fontSize: 18, color: 'white' }} >صفحه ورود</Text>}
                     right={<Icon name={'school'} style={{ color: '#81C784', width: 40, height: 40, alignItems: 'center', }} />} />
