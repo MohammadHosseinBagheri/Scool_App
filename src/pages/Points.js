@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { View, Text, StyleSheet, StatusBar } from 'react-native';
 import { FlatList } from 'react-native-gesture-handler';
 import { Card, CardItem, Icon, Picker } from 'native-base';
-import LinearGradient from 'react-native-linear-gradient';
 import MyHeader from '../components/MyHeader';
 class Points extends Component {
     constructor(props) {
